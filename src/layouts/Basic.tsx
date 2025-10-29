@@ -11,7 +11,7 @@ const BasicLayout = ({ children }: LayoutProps) => {
   return (
     <div className="min-h-screen max-h-screen overscroll-none w-full flex flex-col items-start font-sf-pro">
       <AppBar />
-      <div className="flex-1 w-full overflow-y-auto border scroll-snap-container">
+      <div className="flex-1 w-full overflow-y-auto scroll-snap-container">
         {children}
       </div>
       <ContactMe />
