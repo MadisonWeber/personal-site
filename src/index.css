@@ -1,10 +1,19 @@
+@import url("https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700&display=swap");
 @import "tailwindcss";
 
 #root {
   box-sizing: border-box;
 }
 
+/* Prevent scroll bouncing */
+html,
+body {
+  overscroll-behavior: none;
+  -webkit-overflow-scrolling: touch;
+}
+
 @theme {
+  /* Colors */
   --color-test-blue: #337ab7;
   --color-primary-50: #eff6ff;
   --color-primary-100: #dbeafe;
@@ -16,6 +25,135 @@
   --color-primary-700: #1d4ed8;
   --color-primary-800: #1e40af;
   --color-primary-900: #1e3a8a;
-  --color-secondary-500: #8b5cf6;
   --color-accent-500: #10b981;
+  --color-secondary-500: #ff851a;
+
+  /* Typography */
+  --font-family-sans: "SF Pro Display", "SF Pro Text", -apple-system,
+    BlinkMacSystemFont, system-ui, sans-serif;
+  --font-family-display: "Josefin Sans", "SF Pro Display", -apple-system,
+    BlinkMacSystemFont, system-ui, sans-serif;
+  --font-family-mono: "SF Mono", "Monaco", "Menlo", monospace;
+
+  /* Custom font sizes */
+  --font-size-xs: 0.75rem;
+  --font-size-sm: 0.875rem;
+  --font-size-base: 1rem;
+  --font-size-lg: 1.125rem;
+  --font-size-xl: 1.25rem;
+  --font-size-2xl: 1.5rem;
+  --font-size-3xl: 1.875rem;
+  --font-size-4xl: 2.25rem;
+  --font-size-5xl: 3rem;
+  --font-size-6xl: 3.75rem;
+  --font-size-display: 4.5rem;
+
+  /* Line heights */
+  --line-height-tight: 1.25;
+  --line-height-normal: 1.5;
+  --line-height-relaxed: 1.75;
+}
+
+/* Custom Typography Utilities */
+@layer utilities {
+  .text-display {
+    font-family: var(--font-family-display);
+    font-size: var(--font-size-display);
+    line-height: var(--line-height-tight);
+    font-weight: 800;
+  }
+
+  .text-heading-1 {
+    font-family: var(--font-family-display);
+    font-size: var(--font-size-5xl);
+    line-height: var(--line-height-tight);
+    font-weight: 700;
+  }
+
+  .text-heading-2 {
+    font-family: var(--font-family-display);
+    font-size: var(--font-size-4xl);
+    line-height: var(--line-height-tight);
+    font-weight: 600;
+  }
+
+  .text-heading-3 {
+    font-family: var(--font-family-display);
+    font-size: var(--font-size-3xl);
+    line-height: var(--line-height-tight);
+    font-weight: 600;
+  }
+
+  .text-body-large {
+    font-size: var(--font-size-xl);
+    line-height: var(--line-height-relaxed);
+    font-weight: 400;
+  }
+
+  .text-body {
+    font-size: var(--font-size-base);
+    line-height: var(--line-height-normal);
+    font-weight: 400;
+  }
+
+  .text-body-small {
+    font-size: var(--font-size-sm);
+    line-height: var(--line-height-normal);
+    font-weight: 400;
+  }
+
+  .text-caption {
+    font-family: var(--font-family-sans);
+    font-size: var(--font-size-xs);
+    line-height: var(--line-height-normal);
+    font-weight: 400;
+    color: #6b7280;
+  }
+
+  /* Font Family Utilities */
+  .font-sf {
+    font-family: var(--font-family-sans);
+  }
+
+  .font-josefin {
+    font-family: var(--font-family-display);
+  }
+
+  .font-mono-sf {
+    font-family: var(--font-family-mono);
+  }
+
+  /* Scroll container for pages */
+  .scroll-snap-container {
+    scroll-snap-type: y mandatory;
+    overflow-y: auto;
+    scroll-behavior: smooth;
+  }
+
+  .page-wrapper {
+    min-height: calc(100vh - 4rem); /* Account for AppBar height */
+    width: 100%;
+    /* background-color: #eeeeee; */
+    /* border: 1px solid black; */
+    scroll-snap-align: start;
+    scroll-snap-stop: always;
+    position: relative;
+  }
+
+  /* Shadow Utilities */
+  .shadow-bottom {
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+  }
+
+  .shadow-bottom-sm {
+    box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.05);
+  }
+
+  .shadow-bottom-lg {
+    box-shadow: 0 8px 15px -3px rgba(0, 0, 0, 0.15);
+  }
+
+  .shadow-bottom-xl {
+    box-shadow: 0 12px 25px -5px rgba(0, 0, 0, 0.2);
+  }
 }
