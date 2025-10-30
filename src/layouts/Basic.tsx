@@ -3,14 +3,18 @@ import ContactMe from "@/components/custom/ContactMe";
 
 interface LayoutProps {
   children: React.ReactNode;
-  activeSection?: string;
-  onNavigate?: (sectionId: string) => void;
+  currentPage: string;
+  handleGoToPage: (pageName: string) => void;
 }
 
-const BasicLayout = ({ children }: LayoutProps) => {
+const BasicLayout = ({
+  children,
+  currentPage,
+  handleGoToPage,
+}: LayoutProps) => {
   return (
     <div className="min-h-screen max-h-screen overscroll-none w-full flex flex-col items-start font-sf-pro">
-      <AppBar />
+      <AppBar currentPage={currentPage} handleGoToPage={handleGoToPage} />
       <div className="flex-1 w-full overflow-y-auto scroll-snap-container">
         {children}
       </div>
