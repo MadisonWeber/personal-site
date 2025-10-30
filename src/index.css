@@ -26,7 +26,8 @@ body {
   --color-primary-800: #1e40af;
   --color-primary-900: #1e3a8a;
   --color-accent-500: #10b981;
-  --color-secondary-500: #ff851a;
+  /* --color-secondary-500: #ff851a; */
+  --color-secondary-500: #337ab7;
 
   /* Typography */
   --font-family-sans: "SF Pro Display", "SF Pro Text", -apple-system,

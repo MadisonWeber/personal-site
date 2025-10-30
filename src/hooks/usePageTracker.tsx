@@ -2,7 +2,10 @@
 import { useEffect, useCallback, RefObject } from "react";
 
 interface PageRefs {
-  [key: string]: RefObject<HTMLElement>;
+  landingRef: RefObject<HTMLDivElement>;
+  aboutRef: RefObject<HTMLDivElement>;
+  skillsRef: RefObject<HTMLDivElement>;
+  projectsRef: RefObject<HTMLDivElement>;
 }
 
 const usePageTracker = (
@@ -34,8 +37,8 @@ const usePageTracker = (
   useEffect(() => {
     const observer = new IntersectionObserver(handleIntersection, {
       root: null, // Use viewport
-      rootMargin: "-80px 0px", // Account for AppBar height
-      threshold: [0, 0.1, 0.3, 0.5, 0.7, 0.9, 1.0], // Multiple thresholds
+      // rootMargin: "-80px 0px", // Account for AppBar height
+      threshold: 0.7, // Multiple thresholds
     });
 
     // Observe all page elements

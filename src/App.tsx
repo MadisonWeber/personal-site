@@ -9,10 +9,10 @@ import usePageTracker from "@/hooks/usePageTracker";
 import { PAGES } from "@/routes";
 
 function App() {
-  const landingRef = useRef(null);
-  const aboutRef = useRef(null);
-  const skillsRef = useRef(null);
-  const projectsRef = useRef(null);
+  const landingRef = useRef<HTMLDivElement>(null);
+  const aboutRef = useRef<HTMLDivElement>(null);
+  const skillsRef = useRef<HTMLDivElement>(null);
+  const projectsRef = useRef<HTMLDivElement>(null);
 
   const [currentPage, setCurrentPage] = useState(PAGES.LANDING);
 
@@ -40,8 +40,6 @@ function App() {
         block: "start", // Aligns to the top of the element
       });
     }
-    // setCurrentPage(pageName);
-    console.log("page name is", pageName);
   }, []);
 
   return (
