@@ -51,13 +51,11 @@ const PROJECTS = [
 
 const ProjectPage = () => {
   return (
-    <div className="bg-gray-300 page-wrapper p-12">
-      <span className="text-heading-3">Projects</span>
-      <div className="min-h-8" />
-      <div className="min-h-140 w full border-0 flex flex-col gap-y-8 items-start justify-start">
-        {PROJECTS.map((project) => (
-          <ProjectCard project={project} />
-        ))}
+    <div className="bg-gray-100 page-wrapper flex flex-col items-center justify-center">
+      <div className="bg-white rounded-md shadow-xl p-8 min-h-140 min-w-180 flex flex-col items-start justify-start">
+        <h3 className="text-2xl font-semibold font-josefin text-black">
+          Projects
+        </h3>
       </div>
     </div>
   );

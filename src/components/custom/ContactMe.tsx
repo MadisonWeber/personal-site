@@ -1,5 +1,5 @@
-import React, { useState, FormEvent } from "react";
-import { Mail, Send, MessageCircleMore } from "lucide-react";
+import React, { useState, type FormEvent } from "react";
+import { Send, MessageCircleMore } from "lucide-react";
 import {
   Popover,
   PopoverContent,
@@ -13,9 +13,19 @@ import emailjs from "@emailjs/browser";
 import { Loader } from "lucide-react";
 import { toast } from "sonner";
 
+const isValidEmail = (email: string) => {
+  const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+  return emailRegex.test(email);
+};
+
+const isValidMessage = (message: string) => {
+  return message && message.length > 2;
+};
+
 const ContactMe = () => {
   const [message, setMessage] = useState("");
   const [email, setEmail] = useState("");
+  const [open, setIsOpen] = useState(false);
   const [isSending, setIsSending] = useState(false);
 
   const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
@@ -36,6 +46,7 @@ const ContactMe = () => {
       setIsSending(false);
       setMessage("");
       setEmail("");
+      setIsOpen(false);
       toast.success("Message recieved.");
     } catch {
       toast.error("Failed to send message.");
@@ -43,10 +54,11 @@ const ContactMe = () => {
     }
   };
 
-  const isDisabled = email.length === 0 || message.length === 0 || isSending;
+  const isDisabled =
+    !isValidEmail(email) || !isValidMessage(message) || isSending;
 
   return (
-    <Popover>
+    <Popover open={open} onOpenChange={setIsOpen}>
       <PopoverTrigger asChild>
         <Button className="fixed bottom-8 right-4 z-50 flex flex-row items-center justify-center gap-x-2 border-1 border-gray-200 bg-white w-50 py-2 rounded-top-md rounded-bottom-0 cursor-pointer  shadow-[1px_0px_4px_2px_rgba(0,0,0,0.15)]">
           <span className="text-gray-800 text-sm font-bold">Contact Me</span>
