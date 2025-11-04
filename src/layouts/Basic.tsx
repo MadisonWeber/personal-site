@@ -1,5 +1,6 @@
 import AppBar from "@/components/custom/AppBar";
 import ContactMe from "@/components/custom/ContactMe";
+import { Toaster } from "@/components/ui/sonner";
 
 interface LayoutProps {
   children: React.ReactNode;
@@ -19,6 +20,7 @@ const BasicLayout = ({
         {children}
       </div>
       <ContactMe />
+      <Toaster position="bottom-left" />
     </div>
   );
 };

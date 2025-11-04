@@ -38,7 +38,7 @@ const usePageTracker = (
     const observer = new IntersectionObserver(handleIntersection, {
       root: null, // Use viewport
       // rootMargin: "-80px 0px", // Account for AppBar height
-      threshold: 0.7, // Multiple thresholds
+      threshold: [0.3, 0.5, 0.7], // Multiple thresholds
     });
 
     // Observe all page elements

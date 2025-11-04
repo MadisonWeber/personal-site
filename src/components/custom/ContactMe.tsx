@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState, FormEvent } from "react";
 import { Mail, Send, MessageCircleMore } from "lucide-react";
 import {
   Popover,
@@ -6,8 +6,45 @@ import {
   PopoverTrigger,
 } from "@/components/ui/popover";
 import { Button } from "../ui/button";
+import { Input } from "../ui/input";
+import { Textarea } from "../ui/textarea";
+import { Label } from "../ui/label";
+import emailjs from "@emailjs/browser";
+import { Loader } from "lucide-react";
+import { toast } from "sonner";
 
 const ContactMe = () => {
+  const [message, setMessage] = useState("");
+  const [email, setEmail] = useState("");
+  const [isSending, setIsSending] = useState(false);
+
+  const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    try {
+      setIsSending(true);
+      await emailjs.send(
+        import.meta.env.VITE_EMAIL_JS_SERVICE_KEY,
+        import.meta.env.VITE_EMAIL_JS_TEMPLATE_ID,
+        {
+          name: email,
+          email: email,
+          time: new Date().toDateString(),
+          message: message,
+        },
+        import.meta.env.VITE_EMAIL_JS_PUBLIC_KEY,
+      );
+      setIsSending(false);
+      setMessage("");
+      setEmail("");
+      toast.success("Message recieved.");
+    } catch {
+      toast.error("Failed to send message.");
+      setIsSending(false);
+    }
+  };
+
+  const isDisabled = email.length === 0 || message.length === 0 || isSending;
+
   return (
     <Popover>
       <PopoverTrigger asChild>
@@ -21,24 +58,57 @@ const ContactMe = () => {
         </Button>
       </PopoverTrigger>
       <PopoverContent
-        side="top" // Position above trigger
+        side="top"
         align="end"
         sideOffset={10}
-        alignOffset={10}
+        alignOffset={120}
         className="p-0 border-0"
       >
-        <div className="flex flex-col items-start justify-start p-4 min-h-80  border-gray-200 rounded-lg border-1 bg-white">
+        <form
+          onSubmit={handleSubmit}
+          className="flex flex-col items-start justify-start w-100 p-4 min-h-80 border-gray-200 rounded-lg border-1 bg-white"
+        >
           <span className="font-semibold">Contact me</span>
           <div className="w-full h-[1px] bg-gray-200 mt-2 mb-4" />
-          <div className="flex-1 w-full gap-y-4 flex flex-col">
-            <div className="bg-gray-200 w-full min-h-10 rounded-lg" />
-            <div className="bg-gray-200 w-full min-h-10 flex-1 rounded-lg" />
+          <div className="flex-1 w-full gap-y-2 flex flex-col">
+            <Label htmlFor="email" className="text-sm font-md text-gray-600">
+              Email
+            </Label>
+            <Input
+              type="email"
+              id="email"
+              placeholder="Type your email here."
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+            />
+            <div />
+            <Label htmlFor="message" className="text-sm font-md text-gray-600">
+              Message
+            </Label>
+            <Textarea
+              className="min-h-24 resize-none"
+              id="message"
+              placeholder="Type your message here."
+              maxLength={240}
+              value={message}
+              onChange={(e) => setMessage(e.target.value)}
+            />
           </div>
-          <Button className="w-full bg-primary-500 text-white mt-4">
-            Send Message
-            <Send height={10} width={10} />
+          <Button
+            type="submit"
+            className="w-full bg-primary-500 text-white mt-4 disabled:bg-gray-400"
+            disabled={isDisabled}
+          >
+            {isSending ? (
+              <Loader height={12} width={12} className="animate-spin" />
+            ) : (
+              <>
+                Send Message
+                <Send height={10} width={10} />
+              </>
+            )}
           </Button>
-        </div>
+        </form>
       </PopoverContent>
     </Popover>
   );
