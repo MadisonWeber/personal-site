@@ -141,6 +141,17 @@ body {
     position: relative;
   }
 
+  /* .primary-card {
+    background-color:  'white';
+    display:'flex';
+    justify-content: 'center';
+    align-items: 'center';
+
+
+
+    bg-white rounded-md shadow-xl p-8 min-h-140 min-w-180 flex flex-col items-start justify-start
+  } */
+
   /* Shadow Utilities */
   .shadow-bottom {
     box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);

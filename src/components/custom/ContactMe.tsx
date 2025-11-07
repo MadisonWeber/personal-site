@@ -60,7 +60,7 @@ const ContactMe = () => {
   return (
     <Popover open={open} onOpenChange={setIsOpen}>
       <PopoverTrigger asChild>
-        <Button className="fixed bottom-8 right-4 z-50 flex flex-row items-center justify-center gap-x-2 border-1 border-gray-200 bg-white w-50 py-2 rounded-top-md rounded-bottom-0 cursor-pointer  shadow-[1px_0px_4px_2px_rgba(0,0,0,0.15)]">
+        <Button className="fixed bottom-0 right-4 z-50 flex flex-row items-center justify-center gap-x-2 border-none border-gray-200 bg-white w-50 h-11 py-2 rounded-none rounded-tl-sm rounded-tr-sm cursor-pointer shadow-[1px_1px_3px_2px_rgba(0,0,0,0.10)]">
           <span className="text-gray-800 text-sm font-bold">Contact Me</span>
           <MessageCircleMore
             height={11}
@@ -81,7 +81,7 @@ const ContactMe = () => {
           className="flex flex-col items-start justify-start w-100 p-4 min-h-80 border-gray-200 rounded-lg border-1 bg-white"
         >
           <span className="font-semibold">Contact me</span>
-          <div className="w-full h-[1px] bg-gray-200 mt-2 mb-4" />
+          <div className="w-full h-px bg-gray-200 mt-2 mb-4" />
           <div className="flex-1 w-full gap-y-2 flex flex-col">
             <Label htmlFor="email" className="text-sm font-md text-gray-600">
               Email
@@ -90,6 +90,7 @@ const ContactMe = () => {
               type="email"
               id="email"
               placeholder="Type your email here."
+              className="border-gray-300"
               value={email}
               onChange={(e) => setEmail(e.target.value)}
             />
