@@ -60,25 +60,25 @@ const ContactMe = () => {
   return (
     <Popover open={open} onOpenChange={setIsOpen}>
       <PopoverTrigger asChild>
-        <Button className="fixed bottom-0 right-4 z-50 flex flex-row items-center justify-center gap-x-2 border-none border-gray-200 bg-white w-50 h-11 py-2 rounded-none rounded-tl-sm rounded-tr-sm cursor-pointer shadow-[1px_1px_3px_2px_rgba(0,0,0,0.10)]">
+        <Button className="fixed bottom-0 right-2 z-50 flex flex-row items-center justify-center gap-x-2 border-1 border-gray-400 border-b-0 bg-white/90 w-60 h-11 py-2 rounded-none rounded-tl-xl rounded-tr-xl cursor-pointer shadow-lg">
           <span className="text-gray-800 text-sm font-bold">Contact Me</span>
           <MessageCircleMore
             height={11}
             width={11}
-            className="text-primary-500"
+            className="text-green-500"
           />
         </Button>
       </PopoverTrigger>
       <PopoverContent
         side="top"
         align="end"
-        sideOffset={10}
-        alignOffset={120}
+        sideOffset={6}
+        alignOffset={110}
         className="p-0 border-0"
       >
         <form
           onSubmit={handleSubmit}
-          className="flex flex-col items-start justify-start w-100 p-4 min-h-80 border-gray-200 rounded-lg border-1 bg-white"
+          className="flex flex-col items-start justify-start w-100 p-4 min-h-80 border-gray-600 rounded-lg border-1 bg-white"
         >
           <span className="font-semibold">Contact me</span>
           <div className="w-full h-px bg-gray-200 mt-2 mb-4" />

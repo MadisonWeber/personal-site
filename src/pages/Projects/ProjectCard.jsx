@@ -1,10 +1,13 @@
-import React from "react";
+import React, { useState } from "react";
 import { Button } from "../../components/ui/button";
 import { Github, Link, Tag } from "lucide-react";
+import MultiImageDisplay from "./MultiImageDisplay";
 
 const ProjectCard = ({ project }) => {
+  const [activeImg, setActiveImg] = useState(project?.image);
+
   return (
-    <div className="w-full min-h-64 border-1 border-gray-200 bg-white rounded-lg shadow-md hover:shadow-lg p-4 flex flex-row">
+    <div className="w-full min-h-64  border-gray-200 bg-white rounded-lg shadow-md hover:shadow-lg p-4 flex flex-row">
       <div className="p-2 flex-1 flex flex-col items-start justify-start">
         <p className="text-lg font-semibold">{project.name}</p>
         <p className="mt-2 text-sm text-gray-500 max-w-9/10">
@@ -23,31 +26,45 @@ const ProjectCard = ({ project }) => {
             ))}
           </div>
         )}
-
-        <div className="mt-auto ml-auto flex gap-x-2 pr-4">
-          <Button
-            disabled={!project?.githubUrl}
-            className="bg-white  border-black text-black font-medium tracking-wide hover:bg-gray-100"
+        {project?.secondaryImages && (
+          <MultiImageDisplay
+            setActiveImg={setActiveImg}
+            activeImg={activeImg}
+            secondaryImages={[project?.image, ...project?.secondaryImages]}
+          />
+        )}
+        <div className="mt-auto mr-auto flex gap-x-2 pr-4">
+          <a
+            href={project?.githubUrl}
+            target="_blank"
+            rel="noopener noreferrer"
           >
-            <Github
-              className={
-                project?.githubUrl ? "text-accent-500" : "text-gray-300"
-              }
-            />
-            Github
-          </Button>
-          <Button
-            disabled={!project?.visitUrl}
-            className="bg-white text-black  border-black font-medium tracking-wide hover:bg-gray-100"
-          >
-            <Link className="text-blue-400" height={20} width={20} />
-            Visit
-          </Button>
+            <Button
+              disabled={!project?.githubUrl}
+              className="bg-white cursor-pointer border-black text-black font-medium tracking-wide hover:bg-gray-100"
+            >
+              <Github
+                className={
+                  project?.githubUrl ? "text-accent-500" : "text-gray-300"
+                }
+              />
+              Github
+            </Button>
+          </a>
+          <a href={project?.visitUrl} target="_blank" rel="noopener noreferrer">
+            <Button
+              disabled={!project?.visitUrl}
+              className="bg-white text-black cursor-pointer border-black font-medium tracking-wide hover:bg-gray-100"
+            >
+              <Link className="text-blue-400" height={20} width={20} />
+              Visit
+            </Button>
+          </a>
         </div>
       </div>
       <img
-        src={project?.image || "https://picsum.photos/300/300"}
-        className="h-full bg-gray-100 rounded-lg shrink-0 min-w-60 max-w-60 ml-auto object-contain"
+        src={activeImg || "https://picsum.photos/300/300"}
+        className="h-full bg-gray-100 rounded-lg shrink-0 min-w-60 max-w-60 max-h-60 ml-auto object-contain"
       />
     </div>
   );

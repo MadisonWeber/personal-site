@@ -13,9 +13,13 @@ const LandingPage = () => {
               Madison Weber
             </h1>
             <div className="flex flex-row gap-x-3 items-center justify-center">
-              <p className="text-gray-300 text-lg">Frontend Developer</p>
+              <p className="text-gray-300 text-lg font-josefin">
+                Frontend Developer
+              </p>
               <p className="text-blue-400">|</p>
-              <p className="text-gray-300 text-lg">React & React Native</p>
+              <p className="text-gray-300 text-lg font-josefin">
+                React & React Native
+              </p>
             </div>
           </div>
         </div>

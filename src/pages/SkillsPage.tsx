@@ -1,6 +1,16 @@
 import { Code } from "lucide-react";
 import React from "react";
 import ProjectCard from "./Projects/ProjectCard";
+import {
+  Select,
+  SelectContent,
+  SelectGroup,
+  SelectItem,
+  SelectLabel,
+  SelectTrigger,
+  SelectValue,
+} from "@/components/ui/select";
+
 const SKILLS = [
   {
     name: "React",
@@ -107,16 +117,36 @@ const SkillUI = ({ level }: { level: number }) => {
 
 const SkillsPage = () => {
   return (
-    <div className="bg-gray-200 page-wrapper flex flex-col items-center justify-center">
+    <div className="bg-gray-200 page-wrapper flex flex-col items-center justify-center p-10">
       <div className="bg-white rounded-md shadow-xl p-8 min-h-140 min-w-180 flex flex-col items-start justify-start">
-        <div className="flex flex-row gap-x-3 border-0 items-center ">
-          <h3 className="text-2xl font-semibold font-josefin text-black mt-1.5">
+        <div className="flex flex-row gap-x-3 border-0 items-center justify-between w-full">
+          <h4 className="text-2xl font-semibold font-josefin text-black mt-1.5">
             Skills
-          </h3>
+          </h4>
           {/* <div className="bg-gray-100 p-1.5 rounded-md">
             <Code height={18} width={18} className="text-secondary-500" />
           </div> */}
+          <Select>
+            <SelectTrigger className="w-[180px] border-gray-300">
+              <SelectValue placeholder="Select.." />
+            </SelectTrigger>
+            <SelectContent className="bg-white border-gray-300">
+              <SelectGroup>
+                <SelectLabel className="text-gray-500">My Skills</SelectLabel>
+                <SelectItem value="primary" className="hover:bg-gray-100">
+                  Primary
+                </SelectItem>
+                <SelectItem value="secondary" className="hover:bg-gray-100">
+                  Secondary
+                </SelectItem>
+                <SelectItem value="other" className="hover:bg-gray-100">
+                  Other
+                </SelectItem>
+              </SelectGroup>
+            </SelectContent>
+          </Select>
         </div>
+        <div className="min-h-4" />
         <div className="w-full mt-2 flex-1  h-full gap-y-4 flex flex-col items-start justify-start">
           {SKILLS.map((skill) => (
             <div
