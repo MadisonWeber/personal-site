@@ -1,17 +1,13 @@
-import React, { useState, type FormEvent } from "react";
-import { Send, MessageCircleMore } from "lucide-react";
-import {
-  Popover,
-  PopoverContent,
-  PopoverTrigger,
-} from "@/components/ui/popover";
-import { Button } from "../ui/button";
-import { Input } from "../ui/input";
-import { Textarea } from "../ui/textarea";
-import { Label } from "../ui/label";
-import emailjs from "@emailjs/browser";
-import { Loader } from "lucide-react";
-import { toast } from "sonner";
+import React, { useState, type FormEvent } from 'react';
+import { Send, MessageCircleMore } from 'lucide-react';
+import { Popover, PopoverContent, PopoverTrigger } from '@/components/ui/popover';
+import { Button } from '../ui/button';
+import { Input } from '../ui/input';
+import { Textarea } from '../ui/textarea';
+import { Label } from '../ui/label';
+import emailjs from '@emailjs/browser';
+import { Loader } from 'lucide-react';
+import { toast } from 'sonner';
 
 const isValidEmail = (email: string) => {
   const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
@@ -23,8 +19,8 @@ const isValidMessage = (message: string) => {
 };
 
 const ContactMe = () => {
-  const [message, setMessage] = useState("");
-  const [email, setEmail] = useState("");
+  const [message, setMessage] = useState('');
+  const [email, setEmail] = useState('');
   const [open, setIsOpen] = useState(false);
   const [isSending, setIsSending] = useState(false);
 
@@ -41,31 +37,33 @@ const ContactMe = () => {
           time: new Date().toDateString(),
           message: message,
         },
-        import.meta.env.VITE_EMAIL_JS_PUBLIC_KEY,
+        import.meta.env.VITE_EMAIL_JS_PUBLIC_KEY
       );
       setIsSending(false);
-      setMessage("");
-      setEmail("");
+      setMessage('');
+      setEmail('');
       setIsOpen(false);
-      toast.success("Message recieved.");
+      toast.success('Message recieved.');
     } catch {
-      toast.error("Failed to send message.");
+      toast.error('Failed to send message.');
       setIsSending(false);
     }
   };
 
-  const isDisabled =
-    !isValidEmail(email) || !isValidMessage(message) || isSending;
+  const isDisabled = !isValidEmail(email) || !isValidMessage(message) || isSending;
 
   return (
-    <Popover open={open} onOpenChange={setIsOpen}>
+    <Popover
+      open={open}
+      onOpenChange={setIsOpen}
+    >
       <PopoverTrigger asChild>
-        <Button className="fixed bottom-0 right-2 z-50 flex flex-row items-center justify-center gap-x-2 border-1 border-gray-400 border-b-0 bg-white/90 w-60 h-11 py-2 rounded-none rounded-tl-xl rounded-tr-xl cursor-pointer shadow-lg">
-          <span className="text-gray-800 text-sm font-bold">Contact Me</span>
+        <Button className="fixed bottom-0 right-2 z-50 flex flex-row items-center justify-center gap-x-2 border-1  border-slate-300 border-b-0 bg-white/90 w-60 h-11 py-2 rounded-none rounded-tl-xl rounded-tr-xl cursor-pointer shadow-lg">
+          <span className="text-black text-sm font-semibold">Contact Me</span>
           <MessageCircleMore
-            height={11}
-            width={11}
-            className="text-green-500"
+            height={8}
+            width={8}
+            className="text-sky-700 animate-pulse"
           />
         </Button>
       </PopoverTrigger>
@@ -83,7 +81,10 @@ const ContactMe = () => {
           <span className="font-semibold">Contact me</span>
           <div className="w-full h-px bg-gray-200 mt-2 mb-4" />
           <div className="flex-1 w-full gap-y-2 flex flex-col">
-            <Label htmlFor="email" className="text-sm font-md text-gray-600">
+            <Label
+              htmlFor="email"
+              className="text-sm font-md text-gray-600"
+            >
               Email
             </Label>
             <Input
@@ -92,10 +93,13 @@ const ContactMe = () => {
               placeholder="Type your email here."
               className="border-gray-300"
               value={email}
-              onChange={(e) => setEmail(e.target.value)}
+              onChange={e => setEmail(e.target.value)}
             />
             <div />
-            <Label htmlFor="message" className="text-sm font-md text-gray-600">
+            <Label
+              htmlFor="message"
+              className="text-sm font-md text-gray-600"
+            >
               Message
             </Label>
             <Textarea
@@ -104,7 +108,7 @@ const ContactMe = () => {
               placeholder="Type your message here."
               maxLength={240}
               value={message}
-              onChange={(e) => setMessage(e.target.value)}
+              onChange={e => setMessage(e.target.value)}
             />
           </div>
           <Button
@@ -113,11 +117,18 @@ const ContactMe = () => {
             disabled={isDisabled}
           >
             {isSending ? (
-              <Loader height={12} width={12} className="animate-spin" />
+              <Loader
+                height={12}
+                width={12}
+                className="animate-spin"
+              />
             ) : (
               <>
                 Send Message
-                <Send height={10} width={10} />
+                <Send
+                  height={10}
+                  width={10}
+                />
               </>
             )}
           </Button>
