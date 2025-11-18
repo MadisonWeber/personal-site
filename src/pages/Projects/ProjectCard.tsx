@@ -1,90 +1,121 @@
 import React, { useState } from 'react';
 import { Button } from '../../components/ui/button';
-import { Github, Link, Tag } from 'lucide-react';
+import { Github, Link, Tag, type LucideIcon } from 'lucide-react';
 import MultiImageDisplay from './MultiImageDisplay';
+
+type FilterTag = {
+  Icon: LucideIcon;
+  name: string;
+};
 
 type ProjectProps = {
   project: Project;
-  filterTags: string[];
+  filterTags: FilterTag[];
   secondaryImages?: string[];
   description: string;
   name: string;
   image: string;
   githubUrl?: string;
   visitUrl?: string;
+  isMobile: boolean;
 };
 
 type Project = {
   project: ProjectProps;
 };
 
+const DisplayAppImages = ({ imageArray }: { imageArray: string[] }) => (
+  <div className="flex gap-x-4">
+    {imageArray.map(src => (
+      <img
+        className="h-50 aspect-[9/19] border rounded-xl border-gray-300 shadow-md"
+        src={src}
+        alt="project"
+      />
+    ))}
+  </div>
+);
+
+const DisplayWebImages = () => {};
+
 const ProjectCard = ({ project }: Project) => {
   const [activeImg, setActiveImg] = useState(project?.image);
 
   return (
-    <div className="w-full min-h-64  border-gray-200 bg-white rounded-lg shadow-md hover:shadow-lg p-4 flex flex-row">
+    <div className="min-h-164 w-160 rounded-xl p-5 bg-gray-50 shadow-lg flex border border-gray-100 flex-col items-start justify-start">
       <div className="p-2 flex-1 flex flex-col items-start justify-start">
-        <p className="text-lg font-semibold">{project.name}</p>
-        <p className="mt-2 text-sm text-gray-500 max-w-9/10">{project.description}</p>
-        {/* 
-        {project?.filterTags && (
-          <div className="w-fit border-0 rounded-md min-h-10 flex gap-x-2 items-center justify-start mt-2">
-            {project.filterTags.map(tag => (
-              <div className="p-1.5 px-1.5 flex flex-row items-center justify-center gap-x-1.5 bg-gray-50 rounded-lg border-1 border-gray-200">
-                <Tag
-                  height={12}
-                  width={12}
-                  className="text-gray-400"
-                />
-                <span className="text-xs font-medium text-gray-500">{tag}</span>
+        <p className="text-lg font-semibold text-black">{project.name}</p>
+        <p className="mt-2 text-sm text-gray-500 max-w-9/10 mt-4">{project.description}</p>
+        <div className="flex flex-col gap-2 gap-y-0.5 mt-2 flex-wrap py-2">
+          {project?.filterTags &&
+            project.filterTags.map(({ Icon, name }) => (
+              <div className="flex gap-x-1 items-center">
+                <Icon className="w-4 h-4 text-gray-400" />
+                <span className="text-xs text-gray-400 font-light">{name}</span>
               </div>
             ))}
-          </div>
-        )} */}
-        {project?.secondaryImages && (
+        </div>
+
+        <div className="min-h-4" />
+        {!project.isMobile && project?.secondaryImages && (
           <MultiImageDisplay
             setActiveImg={setActiveImg}
             activeImg={activeImg}
             secondaryImages={[project?.image, ...project.secondaryImages]}
           />
         )}
-        <div className="mt-auto mr-auto flex gap-x-2 pr-4">
+        {project.isMobile && (
+          <DisplayAppImages imageArray={[project.image, ...project?.secondaryImages]} />
+        )}
+        {project.isMobile && (
+          <>
+            <div className="w-full flex gap-x-4 p-3 mt-4">
+              <span className="text-xs font-light text-gray-400">
+                ⭐ <b>4.4</b>/5 Appstore Rating
+              </span>
+              <span className="text-xs font-light text-gray-400">
+                📝 <b>30,000</b> submissions per week
+              </span>
+              <span className="text-xs font-light text-gray-400">
+                🙂 Crash Rate: <b>~0.1%</b>
+              </span>
+            </div>
+          </>
+        )}
+        <div className="mt-auto ml-auto flex gap-x-2">
           <a
             href={project?.githubUrl}
             target="_blank"
             rel="noopener noreferrer"
+            className="w-full"
           >
             <Button
               disabled={!project?.githubUrl}
-              className="bg-white cursor-pointer border-black text-black font-medium tracking-wide hover:bg-gray-100"
+              className="cursor-pointer rounded-full bg-white hover:bg-green-50 transition duration-200 shadow-md border-black text-black font-medium h-10 w-10"
             >
-              <Github className={project?.githubUrl ? 'text-accent-500' : 'text-gray-300'} />
-              Github
+              <Github className={project?.githubUrl ? 'text-green-600' : 'text-gray-300'} />
+              {/* Github */}
             </Button>
           </a>
           <a
             href={project?.visitUrl}
             target="_blank"
             rel="noopener noreferrer"
+            className="w-full"
           >
             <Button
               disabled={!project?.visitUrl}
-              className="bg-white text-black cursor-pointer border-black font-medium tracking-wide hover:bg-gray-100"
+              className="cursor-pointer rounded-full bg-white hover:bg-blue-50 transition duration-200 shadow-md border-black text-black font-medium h-10 w-10l"
             >
               <Link
-                className="text-blue-400"
+                className="text-sky-700 hover-group:text-white"
                 height={20}
                 width={20}
               />
-              Visit
             </Button>
           </a>
         </div>
       </div>
-      <img
-        src={activeImg || 'https://picsum.photos/300/300'}
-        className="h-full bg-gray-100 rounded-lg shrink-0 min-w-60 max-w-60 max-h-60 ml-auto object-contain"
-      />
     </div>
   );
 };
