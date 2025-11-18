@@ -1,10 +1,10 @@
 import React from 'react';
-import ImageOne from '../assets/images/hero-one.jpg';
-import ImageTwo from '../assets/images/hero-two.jpg';
-import ImageThree from '../assets/images/hero-three.jpg';
-import ReactImg from '../assets/images/react.png';
-import TypescriptImg from '../assets/images/ts.png';
-import NextImg from '../assets/images/next.png';
+import ImageOne from '../assets/images/hero/hero-one.jpg';
+import ImageTwo from '../assets/images/hero/hero-two.jpg';
+import ImageThree from '../assets/images/hero/hero-three.jpg';
+import ReactImg from '../assets/images/stack/react.png';
+import TypescriptImg from '../assets/images/stack/ts.png';
+import NextImg from '../assets/images/stack/next.png';
 
 const LandingPage = () => {
   return (
