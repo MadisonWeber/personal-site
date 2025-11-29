@@ -9,8 +9,6 @@ interface AppBarProps {
 }
 
 const AppBar = ({ currentPage, handleGoToPage }: AppBarProps) => {
-  console.log('current page is', currentPage);
-
   return (
     <div className="z-10 font-josefin w-full min-h-16 bg-white flex flex-row items-center justify-start p-3.5 pr-10 pl-10 border border-gray-200 gap-x-10 shadow-bottom">
       <Button
@@ -44,13 +42,13 @@ const AppBar = ({ currentPage, handleGoToPage }: AppBarProps) => {
       </Button>
       <Button
         className={`hover:bg-gray-50 cursor-pointer flex flex-row gap-x-2 items-center justify-center p-1} ${
-          currentPage === PAGES.SKILLS && 'bg-gray-100'
+          currentPage === PAGES.STACK && 'bg-gray-100'
         }`}
-        onClick={() => handleGoToPage(PAGES.SKILLS)}
+        onClick={() => handleGoToPage(PAGES.STACK)}
       >
         <Code
           className={`mb-0.5 transition-colors ${
-            currentPage === PAGES.SKILLS && 'text-secondary-500'
+            currentPage === PAGES.STACK && 'text-secondary-500'
           }`}
         />
         <span className="text-md leading-0 -mb-0.5">Tech Stack</span>

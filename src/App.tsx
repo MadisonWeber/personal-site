@@ -1,9 +1,8 @@
-import React, { useCallback, useRef, useState } from 'react';
+import { useCallback, useRef, useState } from 'react';
 import './index.css';
 import BasicLayout from '@/layouts/Basic';
 import LandingPage from '@/pages/LandingPage';
 import ProjectPage from '@/pages/Projects';
-import SkillsPage from '@/pages/SkillsPage';
 import AboutPage from '@/pages/AboutPage';
 import TechStack from './pages/TechStack';
 import usePageTracker from '@/hooks/usePageTracker';

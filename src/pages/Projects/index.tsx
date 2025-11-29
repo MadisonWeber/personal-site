@@ -24,7 +24,6 @@ import CERT_4 from '@/assets/images/projects/cert/four.png';
 // Data Science
 import DS_ONE from '@/assets/images/projects/dataScience/one.png';
 import DS_TWO from '@/assets/images/projects/dataScience/two.png';
-import DS_THREE from '@/assets/images/projects/dataScience/three.png';
 import DS_FOUR from '@/assets/images/projects/dataScience/four.png';
 import DS_FIVE from '@/assets/images/projects/dataScience/five.png';
 // Other
@@ -199,16 +198,20 @@ const ProjectPage = () => {
             <Button
               onClick={() => api?.scrollPrev()}
               disabled={!api?.canScrollPrev()}
-              className="bg-slate-700 border-none rounded-full h-10 w-10 shadow-md"
+              className="bg-gray-100 border border-gray-100 rounded-xl h-10 w-10 shadow-md hover:shadow-sm cursor-pointer"
             >
-              <ChevronLeft className="text-white" />
+              <ChevronLeft
+                className="text-black"
+                height={50}
+                width={50}
+              />
             </Button>
             <div className="min-w-20 p-1.5 rounded-lg shadow-md flex items-center justify-center bg-gray-100 gap-x-2">
               {PROJECTS.map((p, i) => (
                 <button
                   key={p.name}
                   className={`h-3 w-3 rounded-full transition ${
-                    current === i ? 'bg-slate-700' : 'bg-gray-200'
+                    current === i ? 'bg-sky-700' : 'bg-gray-200'
                   }`}
                   onClick={() => api?.scrollTo(i)}
                 />
@@ -217,10 +220,10 @@ const ProjectPage = () => {
             <Button
               onClick={() => api?.scrollNext()}
               disabled={!api?.canScrollNext()}
-              className="bg-slate-700 border-none rounded-full h-10 w-10 shadow-md p-0 "
+              className="bg-gray-100 border border-gray-100 rounded-xl h-10 w-10 shadow-md hover:shadow-sm cursor-pointer"
             >
               <ChevronRight
-                className="text-white"
+                className="text-black"
                 height={18}
                 width={18}
               />
