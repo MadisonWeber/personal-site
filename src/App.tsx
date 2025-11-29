@@ -1,25 +1,23 @@
-import React, { useCallback, useRef, useState } from "react";
-import "./index.css";
-import BasicLayout from "@/layouts/Basic";
-import LandingPage from "@/pages/LandingPage";
-import ProjectPage from "@/pages/Projects";
-import SkillsPage from "@/pages/SkillsPage";
-import AboutPage from "@/pages/AboutPage";
-import usePageTracker from "@/hooks/usePageTracker";
-import { PAGES } from "@/routes";
+import React, { useCallback, useRef, useState } from 'react';
+import './index.css';
+import BasicLayout from '@/layouts/Basic';
+import LandingPage from '@/pages/LandingPage';
+import ProjectPage from '@/pages/Projects';
+import SkillsPage from '@/pages/SkillsPage';
+import AboutPage from '@/pages/AboutPage';
+import TechStack from './pages/TechStack';
+import usePageTracker from '@/hooks/usePageTracker';
+import { PAGES } from '@/routes';
 
 function App() {
   const landingRef = useRef<HTMLDivElement>(null);
   const aboutRef = useRef<HTMLDivElement>(null);
-  const skillsRef = useRef<HTMLDivElement>(null);
+  const stackRef = useRef<HTMLDivElement>(null);
   const projectsRef = useRef<HTMLDivElement>(null);
 
   const [currentPage, setCurrentPage] = useState(PAGES.LANDING);
 
-  usePageTracker(
-    { landingRef, aboutRef, skillsRef, projectsRef },
-    setCurrentPage,
-  );
+  usePageTracker({ landingRef, aboutRef, stackRef, projectsRef }, setCurrentPage);
 
   const handlePageScroll = useCallback((pageName: string) => {
     // handle scrolling to pages here
@@ -27,7 +25,7 @@ function App() {
     const refMap = {
       [PAGES.LANDING]: landingRef,
       [PAGES.ABOUT]: aboutRef,
-      [PAGES.SKILLS]: skillsRef,
+      [PAGES.STACK]: stackRef,
       [PAGES.PROJECTS]: projectsRef,
     };
 
@@ -36,24 +34,39 @@ function App() {
     if (targetRef?.current) {
       // Scroll to the target element
       targetRef.current.scrollIntoView({
-        behavior: "smooth",
-        block: "start", // Aligns to the top of the element
+        behavior: 'smooth',
+        block: 'start', // Aligns to the top of the element
       });
     }
   }, []);
 
   return (
-    <BasicLayout currentPage={currentPage} handleGoToPage={handlePageScroll}>
-      <div ref={landingRef} data-page={PAGES.LANDING}>
+    <BasicLayout
+      currentPage={currentPage}
+      handleGoToPage={handlePageScroll}
+    >
+      <div
+        ref={landingRef}
+        data-page={PAGES.LANDING}
+      >
         <LandingPage />
       </div>
-      <div ref={aboutRef} data-page={PAGES.ABOUT}>
+      <div
+        ref={aboutRef}
+        data-page={PAGES.ABOUT}
+      >
         <AboutPage />
       </div>
-      <div ref={skillsRef} data-page={PAGES.SKILLS}>
-        <SkillsPage />
+      <div
+        ref={stackRef}
+        data-page={PAGES.STACK}
+      >
+        <TechStack />
       </div>
-      <div ref={projectsRef} data-page={PAGES.PROJECTS}>
+      <div
+        ref={projectsRef}
+        data-page={PAGES.PROJECTS}
+      >
         <ProjectPage />
       </div>
     </BasicLayout>

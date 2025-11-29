@@ -1,17 +1,38 @@
 import React, { useState, useEffect } from 'react';
 import ProjectCard from './ProjectCard';
-import HOUSING_IMG from '@/assets/images/projects/housing-prices.png';
-import NHL_IMG from '@/assets/images/projects/nhl-expected-goals.png';
-import SPIFFY_DASH from '@/assets/images/projects/spiffy-dash.avif';
-import OLIVER_CERT from '@/assets/images/projects/oliver-certs.png';
-import SPIFFY_APP_1 from '@/assets/images/projects/SpifyApp1.png';
-import SPIFFY_APP_2 from '@/assets/images/projects/SpiffyApp2.png';
-import SPIFFY_APP_3 from '@/assets/images/projects/SpiffyApp3.png';
-import SPIFFY_APP_4 from '@/assets/images/projects/SpiffyApp4.png';
-import SPIFFY_APP_5 from '@/assets/images/projects/SpiffyApp5.png';
-import DASH_1 from '@/assets/images/projects/dash1.png';
-import DASH_2 from '@/assets/images/projects/dash2.png';
-import DASH_3 from '@/assets/images/projects/dash3.png';
+// App
+import SPIFFY_APP_1 from '@/assets/images/projects/spiffyApp/SpifyApp1.png';
+import SPIFFY_APP_2 from '@/assets/images/projects/spiffyApp/SpiffyApp2.png';
+import SPIFFY_APP_3 from '@/assets/images/projects/spiffyApp/SpiffyApp3.png';
+import SPIFFY_APP_4 from '@/assets/images/projects/spiffyApp/SpiffyApp4.png';
+import SPIFFY_APP_5 from '@/assets/images/projects/spiffyApp/SpiffyApp5.png';
+// Dash
+import SPIFFY_DASH from '@/assets/images/projects/dash/dash1.png';
+import DASH_1 from '@/assets/images/projects/dash/dash1.png';
+import DASH_2 from '@/assets/images/projects/dash/dash2.png';
+import DASH_3 from '@/assets/images/projects/dash/dash3.png';
+// Web App
+import WEB_APP_1 from '@/assets/images/projects/webapp/one.png';
+import WEB_APP_2 from '@/assets/images/projects/webapp/two.png';
+import WEB_APP_3 from '@/assets/images/projects/webapp/three.png';
+import WEB_APP_4 from '@/assets/images/projects/webapp/four.png';
+// Cert Site
+import CERT_1 from '@/assets/images/projects/cert/one.png';
+import CERT_2 from '@/assets/images/projects/cert/two.png';
+import CERT_3 from '@/assets/images/projects/cert/three.png';
+import CERT_4 from '@/assets/images/projects/cert/four.png';
+// Data Science
+import DS_ONE from '@/assets/images/projects/dataScience/one.png';
+import DS_TWO from '@/assets/images/projects/dataScience/two.png';
+import DS_THREE from '@/assets/images/projects/dataScience/three.png';
+import DS_FOUR from '@/assets/images/projects/dataScience/four.png';
+import DS_FIVE from '@/assets/images/projects/dataScience/five.png';
+// Other
+import OTHER_ONE from '@/assets/images/projects/other/one.png';
+import OTHER_TWO from '@/assets/images/projects/other/two.png';
+import OTHER_THREE from '@/assets/images/projects/other/three.png';
+import OTHER_FOUR from '@/assets/images/projects/other/four.png';
+
 import { Carousel, CarouselContent, CarouselItem } from '@/components/ui/carousel';
 import { type CarouselApi } from '@/components/ui/carousel';
 import {
@@ -24,6 +45,8 @@ import {
   ChevronLeft,
   Paintbrush2,
   Github,
+  FlaskConical,
+  Calculator,
 } from 'lucide-react';
 
 import { Button } from '@/components/ui/button';
@@ -38,13 +61,16 @@ const PROJECTS = [
     filterTags: [
       { Icon: Smartphone, name: 'Mobile Development' },
       { Icon: Atom, name: 'React, React Native' },
-      { Icon: Box, name: 'Axios, MobX, Async-Storage, Firebase, Flashlist, ErrorBoundry, Jest' },
+      {
+        Icon: Box,
+        name: 'Axios, MobX, Async-Storage, Firebase, Flashlist, Notifications, Jest',
+      },
       { Icon: Paintbrush2, name: 'CSS, StyleSheets' },
       { Icon: Github, name: 'Git, Github' },
       { Icon: Server, name: 'Apple Appstore, Google Playstore' },
     ],
     isMobile: true,
-    githubUrl: 'https://github.com/MadisonWeber',
+    githubUrl: null,
     visitUrl: 'https://apps.apple.com/ca/app/spiffy/id1138634357',
   },
   {
@@ -69,28 +95,27 @@ const PROJECTS = [
   {
     name: 'Spiffy Web App',
     description:
-      "Spiffy's administration dashboard. Used by company admins to create modules, manage teams, view reports, and add content. Written in React using material ui, styled-components, SWR, zustand, chart-js-2.",
-    image: SPIFFY_DASH,
-    secondaryImages: [DASH_1, DASH_2, DASH_3],
+      "Web application of Spiffy's mobile app. Includes all functionality for users to complete modules & stay up to date with their training. Linked to mobile app via Universal Links.",
+    image: WEB_APP_4,
+    secondaryImages: [WEB_APP_2, WEB_APP_3, WEB_APP_1],
     filterTags: [
       { Icon: Monitor, name: 'Web Development' },
       { Icon: Atom, name: 'React, Javascript' },
-      { Icon: Box, name: 'Axios, Zustand, Context, Formik' },
+      { Icon: Box, name: 'React Query, Zustand, Axios' },
       { Icon: Paintbrush2, name: 'Material-UI, Styled-Components' },
       { Icon: Github, name: 'Git, Github' },
       { Icon: Server, name: 'Netlifty' },
     ],
     isMobile: false,
-
-    githubUrl: 'https://github.com/MadisonWeber',
-    visitUrl: 'https://dashboard.withspiffy.com/',
+    githubUrl: null,
+    visitUrl: 'https://learn.withspiffy.com',
   },
   {
     name: 'Oliver Certifications Ecommerce Site',
     description:
       'Ecommerce site created to allow for the purchase of certificiations for Oliver Solutions. Complete stripe payment integration. Written in React with Tailwind, Shadcn & Zustand.',
-    image: OLIVER_CERT,
-    secondaryImages: null,
+    image: CERT_1,
+    secondaryImages: [CERT_2, CERT_3, CERT_4],
     filterTags: [
       { Icon: Monitor, name: 'Web Development' },
       { Icon: Atom, name: 'React, Typescript' },
@@ -100,35 +125,36 @@ const PROJECTS = [
       { Icon: Server, name: 'Netlifty' },
     ],
     isMobile: false,
-    githubUrl: '',
-    visitUrl: 'https://certifications-staging.withspiffy.com/',
+    githubUrl: null,
+    visitUrl: 'https://certifications.withspiffy.com/',
   },
   {
     name: 'Data Science Projects',
     description:
-      'Fun machine learning and visualization i worked on as a hobby project. Analysis and visualization of how goals are scored in the NHL.',
-    image: NHL_IMG,
-    secondaryImages: [HOUSING_IMG],
+      'Machine learning, data visualization & statstics projects i have worked on. Some of these projects were submitted to Kaggle in competitions. Written in R and complied with R Markdown.',
+    image: DS_ONE,
+    secondaryImages: [DS_TWO, DS_FOUR, DS_FIVE],
     filterTags: [
-      { Icon: Monitor, name: 'Data Science' },
-      { Icon: Atom, name: 'R, R-Studio' },
+      { Icon: FlaskConical, name: 'Data Science' },
+      { Icon: Calculator, name: 'R, R-Studio' },
       { Icon: Box, name: 'Data Cleaning, Maching Learning, Statistics, Data Visualization' },
+      { Icon: Server, name: 'R Markdown, Kaggle' },
     ],
     isMobile: false,
-    githubUrl: '',
-    visitUrl: 'https://www.kaggle.com/code/madison88/nhl-expected-goals-model-and-heat-maps/report',
+    githubUrl: null,
+    visitUrl: 'https://www.kaggle.com/madison88/code',
   },
 
   {
-    name: 'Other Projects',
+    name: 'Other Website Projects',
     description:
       'A bunch of website layout projects i have completed. Practicing advanced CSS, responsiveness and pixel perfect layouts.',
-    image: '',
-    secondaryImages: null,
+    image: OTHER_ONE,
+    secondaryImages: [OTHER_TWO, OTHER_THREE, OTHER_FOUR],
     filterTags: null,
     isMobile: false,
     githubUrl: '',
-    visitUrl: null,
+    visitUrl: 'https://frontend-mentor-easybank.madisonweber.vercel.app/',
   },
 ];
 
@@ -147,8 +173,6 @@ const ProjectPage = () => {
       setCurrent(api.selectedScrollSnap());
     });
   }, [api]);
-
-  console.log('current is', current);
 
   return (
     <div className="bg-gray-100 page-wrapper flex flex-col items-center justify-center p-10">

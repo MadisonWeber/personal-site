@@ -23,15 +23,21 @@ import JIRA from '@/assets/images/stack/jira.webp';
 import AXIOS from '@/assets/images/stack/axios.png';
 import AMPLITUDE from '@/assets/images/stack/amplitude.webp';
 import MOBX from '@/assets/images/stack/mobx.png';
+import REDUX from '@/assets/images/stack/redux-4.png';
+import MUI from '@/assets/images/stack/MUI.png';
+import VERCEL from '@/assets/images/stack/vercel-2.png';
 
-const CATEGORIES = {
-  PRIMARY: 'Primary',
-  SECONDARY: 'Secondary',
-  OTHER: 'Other',
-  ALL: 'All',
+export const CATEGORIES = {
+  LANGUAGE: 'Languages',
+  FRAMEWORK: 'Frameworks',
+  STATE_MANAGEMENT: 'State Management',
+  STYLING: 'Styling',
+  TOOLING: 'Tooling',
+  PLATFORMS: "Platforms & Ide's",
+  MONITORING: 'Monitoring',
 };
 
-export const SKILLS = [
+export const STACK_LIST = [
   {
     name: 'React',
     level: 8,
@@ -41,8 +47,7 @@ export const SKILLS = [
     description:
       'Primary web framework i like to work with. I have 6 years experience building web applications with React. That includes building 4 enterprise applications and countless personal projects.',
     img: REACT_IMG,
-    category: CATEGORIES.PRIMARY,
-    quote: 'I can write react code in my sleep.',
+    category: CATEGORIES.FRAMEWORK,
   },
   {
     name: 'React Native',
@@ -53,7 +58,7 @@ export const SKILLS = [
     description:
       'Four years experience building production react native applications. Built and deployed multiple React Native apps, with 2 currently available in AppStore. Build and deployed common mobile features like push notifications(firebase), universal linking, permissions, haptic feedback and more.',
     img: REACT_NATIVE_IMG,
-    category: CATEGORIES.PRIMARY,
+    category: CATEGORIES.FRAMEWORK,
   },
   {
     name: 'Javascript',
@@ -62,9 +67,9 @@ export const SKILLS = [
     confidence: 7,
     experience: 7,
     description:
-      'Excellent grasp of modern Javascript. Javascript has been my primary programming language for the last few years.',
+      'Expert-level proficiency in modern JavaScript (ES6+). Primary programming language with deep understanding of async/await, promises, closures, and functional programming patterns.',
     img: JAVASCRIPT_IMG,
-    category: CATEGORIES.PRIMARY,
+    category: CATEGORIES.LANGUAGE,
   },
   {
     name: 'CSS',
@@ -73,8 +78,8 @@ export const SKILLS = [
     experience: 8,
     level: 8,
     description:
-      'Advanced styling with modern CSS, animations, and responsive design are a passion of mine. I like to keep up with the newest tech and im always learning.',
-    category: CATEGORIES.SECONDARY,
+      'Advanced CSS skills including Flexbox, Grid, animations, transitions, and responsive design. Strong focus on modern CSS features, performance optimization, and cross-browser compatibility.',
+    category: CATEGORIES.LANGUAGE,
     img: CSS,
   },
   {
@@ -85,8 +90,8 @@ export const SKILLS = [
     experience: 8,
     img: HTML,
     description:
-      'Familiar with Semantic HTML5 markup use for accessible and SEO-friendly websites.',
-    category: CATEGORIES.SECONDARY,
+      'Semantic HTML5 markup specialist with focus on accessibility (WCAG), SEO best practices, and proper document structure for improved user experience and search rankings.',
+    category: CATEGORIES.LANGUAGE,
   },
   {
     name: 'Typescript',
@@ -95,9 +100,9 @@ export const SKILLS = [
     confidence: 6,
     experience: 4,
     description:
-      'Strong typing and type-safe development for scalable applications. My secondary programming language.',
+      'Strong typing expertise for building type-safe, scalable applications. Proficient in interfaces, generics, utility types, and leveraging TypeScript for improved code quality and developer experience.',
     img: TYPESCRIPT_IMG,
-    category: CATEGORIES.PRIMARY,
+    category: CATEGORIES.LANGUAGE,
   },
   {
     name: 'Git',
@@ -106,8 +111,8 @@ export const SKILLS = [
     confidence: 5,
     experience: 8,
     description:
-      'Good understanding of git for version control in a team environment. Very familiar with Git workflows and best practices',
-    category: CATEGORIES.SECONDARY,
+      'Version control expert with extensive experience in team collaboration. Proficient in branching strategies, pull requests, merge conflict resolution, and Git workflows.',
+    category: CATEGORIES.TOOLING,
     img: GIT,
   },
   {
@@ -117,9 +122,9 @@ export const SKILLS = [
     confidence: 5,
     experience: 0,
     description:
-      'Excellent working knowdlege of the NextJs framework and ecosystem. Have built multiple pet projects with NextJS.',
+      'Working knowledge of Next.js 14 including App Router, server components, API routes, and static/dynamic rendering. Built multiple projects leveraging SSR, SSG, and ISR capabilities.',
     img: NEXT_IMG,
-    category: CATEGORIES.PRIMARY,
+    category: CATEGORIES.FRAMEWORK,
   },
 
   {
@@ -128,8 +133,10 @@ export const SKILLS = [
     exposure: 5,
     confidence: 5,
     experience: 8,
-    description: 'React hooks library for data fetching, caching & management.',
+    description:
+      'Advanced data fetching and caching solution for server state management. Experience with queries, mutations, optimistic updates, infinite scrolling, and background refetching patterns.',
     img: REACT_QUERY_IMG,
+    category: CATEGORIES.STATE_MANAGEMENT,
   },
   {
     name: 'SWR',
@@ -137,8 +144,10 @@ export const SKILLS = [
     exposure: 6,
     confidence: 7,
     experience: 8,
-    description: 'React hooks library for data fetching, caching & management.',
+    description:
+      'Lightweight React hooks library for remote data fetching. Implemented stale-while-revalidate patterns, real-time updates, and optimized caching strategies in production applications.',
     img: SWR,
+    category: CATEGORIES.STATE_MANAGEMENT,
   },
   {
     name: 'Figma',
@@ -147,9 +156,9 @@ export const SKILLS = [
     confidence: 3,
     experience: 3,
     description:
-      'Solid understanding of basic figma functionality. I have the ability to create product wireframes & transform them to code.',
-    category: CATEGORIES.SECONDARY,
+      'Collaborative design tool for creating wireframes and mockups. Experience working with design systems, components, and developer handoff workflows.',
     img: FIGMA,
+    category: CATEGORIES.TOOLING,
   },
   {
     name: 'Styled Components',
@@ -158,9 +167,20 @@ export const SKILLS = [
     confidence: 5,
     experience: 7,
     description:
-      'Popular CSS-in-JS styling solution commonly used in React. I used this in most of my production projects and am very confortable with it.',
-    category: CATEGORIES.SECONDARY,
+      'CSS-in-JS expertise with extensive production usage. Skilled in creating dynamic, theme-able component styles, global styles, and leveraging TypeScript for type-safe styling.',
     img: STYLED,
+    category: CATEGORIES.STYLING,
+  },
+  {
+    name: 'Material UI',
+    level: 8,
+    exposure: 4,
+    confidence: 5,
+    experience: 7,
+    description:
+      'Comprehensive React component library experience for enterprise applications. Proficient in customizing themes, creating custom components, and implementing Material Design principles.',
+    img: MUI,
+    category: CATEGORIES.STYLING,
   },
   {
     name: 'Tailwind',
@@ -169,8 +189,8 @@ export const SKILLS = [
     confidence: 6,
     experience: 4,
     description:
-      'Popular utility-first CSS framework for stying and UI development. I have used this in production and like it for quick and easy styling.',
-    category: CATEGORIES.SECONDARY,
+      'Utility-first CSS framework for rapid UI development. Experience with custom configurations, responsive design patterns, and production optimization for minimal bundle sizes.',
+    category: CATEGORIES.STYLING,
     img: TAILWIND,
   },
   {
@@ -180,9 +200,20 @@ export const SKILLS = [
     confidence: 4,
     experience: 6,
     description:
-      'Preferred state managaement library, lightweight, flexible and fast. Easy to understand and simple to make changes. I have use this in multiple production projects.',
-    category: CATEGORIES.SECONDARY,
+      'Lightweight state management solution with minimal boilerplate. Implemented in multiple production applications for efficient, scalable state handling with excellent TypeScript support.',
+    category: CATEGORIES.STATE_MANAGEMENT,
     img: ZUSTAND,
+  },
+  {
+    name: 'Redux',
+    level: 7,
+    exposure: 4,
+    confidence: 4,
+    experience: 6,
+    description:
+      'Predictable state container for complex application state. Experience with Redux Toolkit, middleware (thunk, saga), normalized state patterns, and debugging with Redux DevTools.',
+    category: CATEGORIES.STATE_MANAGEMENT,
+    img: REDUX,
   },
   {
     name: 'MobX',
@@ -190,8 +221,9 @@ export const SKILLS = [
     exposure: 4,
     confidence: 4,
     experience: 4,
-    description: 'Reactive state management through observable data and automatic updates',
-    category: CATEGORIES.SECONDARY,
+    description:
+      'Reactive state management using observable patterns. Built production applications leveraging MobX for automatic UI updates and efficient re-rendering through transparent reactivity.',
+    category: CATEGORIES.STATE_MANAGEMENT,
     img: MOBX,
   },
   {
@@ -201,7 +233,7 @@ export const SKILLS = [
     confidence: 4,
     experience: 3,
     description: 'Payment processing integration for secure online transactions',
-    category: CATEGORIES.SECONDARY,
+    category: CATEGORIES.TOOLING,
     img: STRIPE,
   },
   {
@@ -210,8 +242,9 @@ export const SKILLS = [
     exposure: 3,
     confidence: 4,
     experience: 3,
-    description: 'Development platform for building and deploying React Native apps',
-    category: CATEGORIES.SECONDARY,
+    description:
+      'React Native development platform for streamlined mobile app development. Experience with Expo CLI, EAS Build, OTA updates, and native module integration for iOS and Android.',
+    category: CATEGORIES.FRAMEWORK,
     img: EXPO,
   },
   {
@@ -220,8 +253,9 @@ export const SKILLS = [
     exposure: 6,
     confidence: 6,
     experience: 8,
-    description: 'Popular HTTP client for API requests',
-    category: CATEGORIES.SECONDARY,
+    description:
+      'Promise-based HTTP client for API communication. Extensive experience with interceptors, error handling, request/response transformation, and authentication patterns in production environments.',
+    category: CATEGORIES.TOOLING,
     img: AXIOS,
   },
   {
@@ -230,8 +264,9 @@ export const SKILLS = [
     exposure: 3,
     confidence: 4,
     experience: 7,
-    description: 'Web hosting platform for deployment and CI/CD',
-    category: CATEGORIES.SECONDARY,
+    description:
+      'Modern web hosting and deployment platform with continuous deployment from Git. Experience with serverless functions, environment variables, custom domains, and automated build pipelines.',
+    category: CATEGORIES.PLATFORMS,
     img: NETLIFY,
   },
   {
@@ -240,8 +275,9 @@ export const SKILLS = [
     exposure: 3,
     confidence: 4,
     experience: 4,
-    description: 'IOS development IDE, simulators, tooling, debugging, app development',
-    category: CATEGORIES.SECONDARY,
+    description:
+      "Apple's integrated development environment for iOS app development. Proficient in iOS simulators, debugging tools, provisioning profiles, and App Store deployment processes.",
+    category: CATEGORIES.PLATFORMS,
     img: XCODE_IMG,
   },
   {
@@ -250,8 +286,9 @@ export const SKILLS = [
     exposure: 3,
     confidence: 4,
     experience: 6,
-    description: 'Error tracking and performance monitoring for production applications',
-    category: CATEGORIES.SECONDARY,
+    description:
+      'Error tracking and performance monitoring platform for production applications. Implemented real-time error reporting, breadcrumbs, release tracking, and performance metrics across web and mobile apps.',
+    category: CATEGORIES.MONITORING,
     img: SENTRY,
   },
 
@@ -262,8 +299,9 @@ export const SKILLS = [
     confidence: 4,
     experience: 4,
 
-    description: 'Analytics platform for tracking and understanding user behaviour',
-    category: CATEGORIES.SECONDARY,
+    description:
+      'Product analytics platform for tracking user behavior and engagement metrics. Experience implementing event tracking, user funnels, retention analysis, and data-driven decision making.',
+    category: CATEGORIES.MONITORING,
     img: AMPLITUDE,
   },
   {
@@ -272,9 +310,9 @@ export const SKILLS = [
     exposure: 3,
     confidence: 4,
     experience: 3,
-
-    description: 'Project management and issue tracking in agile workflows',
-    category: CATEGORIES.SECONDARY,
+    description:
+      'Project management and issue tracking tool for agile development teams. Proficient in sprint planning, story estimation, workflow customization, and cross-functional team collaboration.',
+    category: CATEGORIES.TOOLING,
     img: JIRA,
   },
   {
@@ -283,8 +321,9 @@ export const SKILLS = [
     exposure: 6,
     confidence: 6,
     experience: 6,
-    description: 'Primary code editing tool',
-    category: CATEGORIES.SECONDARY,
+    description:
+      'Primary code editor with extensive customization. Expert in extensions, keyboard shortcuts, debugging workflows, Git integration, and workspace optimization for maximum productivity.',
+    category: CATEGORIES.PLATFORMS,
     img: VS_CODE,
   },
   {
@@ -293,8 +332,20 @@ export const SKILLS = [
     exposure: 3,
     confidence: 4,
     experience: 4,
-    description: 'IDE for Android development used with React Native ',
-    category: CATEGORIES.SECONDARY,
+    description:
+      "Google's IDE for Android development and React Native debugging. Experience with Android emulators, Logcat debugging, Gradle builds, and Google Play Store deployment.",
+    category: CATEGORIES.PLATFORMS,
     img: ANDROID_STUDIO,
+  },
+  {
+    name: 'Vercel',
+    level: 4,
+    exposure: 3,
+    confidence: 4,
+    experience: 4,
+    description:
+      'Frontend cloud platform optimized for Next.js and modern web frameworks. Experience with zero-configuration deployments, serverless functions, edge computing, preview deployments, and custom domain management.',
+    category: CATEGORIES.PLATFORMS,
+    img: VERCEL,
   },
 ];

@@ -15,7 +15,7 @@ const MultiImageDisplay = ({
     <div className="flex flex-row gap-x-3 items-start">
       <img
         src={activeImg}
-        className="h-full bg-gray-100 aspect[16/10] shadow-md rounded-xl border-1 border-sky-700 max-h-60 h-60 w-90 max-w-90 object-fill"
+        className="h-full bg-gray-100 aspect[16/10] shadow-md rounded-xl border-2 border-sky-700 max-h-60 h-60 w-90 max-w-90 object-fill"
       />
       <div className="h-64 flex flex-col items-start justify-start pt-1 gap-y-1">
         {secondaryImages?.map(image => (

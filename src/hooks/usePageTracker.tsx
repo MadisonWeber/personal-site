@@ -1,24 +1,21 @@
 // In your App.tsx, add this hook at the top
-import { useEffect, useCallback, RefObject } from "react";
+import { useEffect, useCallback, RefObject } from 'react';
 
 interface PageRefs {
   landingRef: RefObject<HTMLDivElement>;
   aboutRef: RefObject<HTMLDivElement>;
-  skillsRef: RefObject<HTMLDivElement>;
+  stackRef: RefObject<HTMLDivElement>;
   projectsRef: RefObject<HTMLDivElement>;
 }
 
-const usePageTracker = (
-  refs: PageRefs,
-  setCurrentPage: (pageName: string) => void,
-) => {
+const usePageTracker = (refs: PageRefs, setCurrentPage: (pageName: string) => void) => {
   const handleIntersection = useCallback(
     (entries: IntersectionObserverEntry[]) => {
       // Find the entry with the highest intersection ratio
       let mostVisible = null;
       let highestRatio = 0;
 
-      entries.forEach((entry) => {
+      entries.forEach(entry => {
         if (entry.intersectionRatio > highestRatio) {
           highestRatio = entry.intersectionRatio;
           mostVisible = entry;
@@ -27,11 +24,11 @@ const usePageTracker = (
 
       // Update current page if we have a significantly visible page
       if (mostVisible && highestRatio > 0.3) {
-        const pageName = mostVisible.target.getAttribute("data-page");
+        const pageName = mostVisible.target.getAttribute('data-page');
         setCurrentPage(pageName);
       }
     },
-    [setCurrentPage],
+    [setCurrentPage]
   );
 
   useEffect(() => {
@@ -42,20 +39,15 @@ const usePageTracker = (
     });
 
     // Observe all page elements
-    const refList = [
-      refs.landingRef,
-      refs.aboutRef,
-      refs.skillsRef,
-      refs.projectsRef,
-    ];
-    refList.forEach((ref) => {
+    const refList = [refs.landingRef, refs.aboutRef, refs.stackRef, refs.projectsRef];
+    refList.forEach(ref => {
       if (ref.current) {
         observer.observe(ref.current);
       }
     });
 
     return () => {
-      refList.forEach((ref) => {
+      refList.forEach(ref => {
         if (ref.current) {
           observer.unobserve(ref.current);
         }
