@@ -1,6 +1,5 @@
 import React, { useState, type FormEvent } from 'react';
 import { Send, MessageCircleMore } from 'lucide-react';
-import { Popover, PopoverContent, PopoverTrigger } from '@/components/ui/popover';
 import { Button } from '../ui/button';
 import { Input } from '../ui/input';
 import { Textarea } from '../ui/textarea';
@@ -8,6 +7,13 @@ import { Label } from '../ui/label';
 import emailjs from '@emailjs/browser';
 import { Loader } from 'lucide-react';
 import { toast } from 'sonner';
+import {
+  Dialog,
+  DialogContent,
+  DialogTrigger,
+  DialogOverlay,
+} from "@/components/ui/dialog"
+import { Tooltip, TooltipTrigger, TooltipContent } from '../ui/tooltip';
 
 const isValidEmail = (email: string) => {
   const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
@@ -53,30 +59,35 @@ const ContactMe = () => {
   const isDisabled = !isValidEmail(email) || !isValidMessage(message) || isSending;
 
   return (
-    <Popover
+    <Dialog
       open={open}
       onOpenChange={setIsOpen}
     >
-      <PopoverTrigger asChild>
-        <Button className="fixed bottom-0 right-2 z-50 flex flex-row items-center justify-center gap-x-2 border-1  border-slate-300 border-b-0 bg-white/90 w-60 h-11 py-2 rounded-none rounded-tl-xl rounded-tr-xl cursor-pointer shadow-lg">
-          <span className="text-black text-sm font-semibold">Contact Me</span>
+      <DialogOverlay className='bg-black/30'/>
+      <DialogTrigger asChild>
+    <Tooltip>
+      <TooltipTrigger asChild>
+
+        <Button className="fixed bottom-3 right-3 z-50 flex flex-row items-center justify-center bg-white p-5 rounded-full cursor-pointer shadow-lg">
           <MessageCircleMore
-            height={8}
-            width={8}
-            className="text-sky-700 animate-pulse"
+            height={10}
+            width={10}
+            className="text-sky-900 animate-pulse"
           />
         </Button>
-      </PopoverTrigger>
-      <PopoverContent
-        side="top"
-        align="end"
-        sideOffset={6}
-        alignOffset={110}
-        className="p-0 border-0"
+      </TooltipTrigger>
+      <TooltipContent sideOffset={4} side='left'  className='p-2 bg-white text-sky-900 rounded-md border-1 border-gray-100 shadow-md'>
+        <span>Contact Me</span>
+      </TooltipContent>
+    </Tooltip>
+      </DialogTrigger>
+      <DialogContent
+        
+        className="p-0 shadow-xl"
       >
         <form
           onSubmit={handleSubmit}
-          className="flex flex-col items-start justify-start w-100 p-4 min-h-80 border-gray-600 rounded-lg border-1 bg-white"
+          className="flex flex-col w-full items-start justify-start p-4 min-h-80 border-gray-600 rounded-lg bg-white"
         >
           <span className="font-semibold">Contact me</span>
           <div className="w-full h-px bg-gray-200 mt-2 mb-4" />
@@ -90,7 +101,7 @@ const ContactMe = () => {
             <Input
               type="email"
               id="email"
-              placeholder="Type your email here."
+              placeholder="Type your email..."
               className="border-gray-300"
               value={email}
               onChange={e => setEmail(e.target.value)}
@@ -105,7 +116,7 @@ const ContactMe = () => {
             <Textarea
               className="min-h-24 resize-none"
               id="message"
-              placeholder="Type your message here."
+              placeholder="Type your message..."
               maxLength={240}
               value={message}
               onChange={e => setMessage(e.target.value)}
@@ -133,8 +144,8 @@ const ContactMe = () => {
             )}
           </Button>
         </form>
-      </PopoverContent>
-    </Popover>
+      </DialogContent>
+    </Dialog>
   );
 };
 
