@@ -8,42 +8,59 @@ import emailjs from '@emailjs/browser';
 import { Loader } from 'lucide-react';
 import { toast } from 'sonner';
 import { Dialog, DialogContent, DialogTrigger, DialogOverlay } from '@/components/ui/dialog';
-import { Tooltip, TooltipTrigger, TooltipContent } from '../ui/tooltip';
-import { TooltipProvider } from '@radix-ui/react-tooltip';
+import {
+  Form,
+  FormField,
+  FormControl,
+  FormItem,
+  FormMessage,
+  FormLabel,
+} from '@/components/ui/form';
+import { useForm } from 'react-hook-form';
+import { z } from 'zod';
+import { zodResolver } from '@hookform/resolvers/zod';
 
-const isValidEmail = (email: string) => {
-  const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-  return emailRegex.test(email);
-};
+const contactSchema = z.object({
+  email: z.string().email('Please enter a valid email address'),
+  message: z
+    .string()
+    .min(3, 'Message must be at least 3 characters long.')
+    .max(240, 'Message must be less than 240 characters.'),
+});
 
-const isValidMessage = (message: string) => {
-  return message && message.length > 2;
-};
+type ContactFormData = z.infer<typeof contactSchema>;
 
 const ContactMe = () => {
-  const [message, setMessage] = useState('');
-  const [email, setEmail] = useState('');
   const [open, setIsOpen] = useState(false);
   const [isSending, setIsSending] = useState(false);
 
-  const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
-    e.preventDefault();
+  // Initialize form
+  const form = useForm<ContactFormData>({
+    resolver: zodResolver(contactSchema),
+    defaultValues: {
+      email: '',
+      message: '',
+    },
+  });
+
+  const handleSubmitForm = async (data: ContactFormData) => {
+    console.log('data is', data);
     try {
       setIsSending(true);
       await emailjs.send(
         import.meta.env.VITE_EMAIL_JS_SERVICE_KEY,
         import.meta.env.VITE_EMAIL_JS_TEMPLATE_ID,
         {
-          name: email,
-          email: email,
+          name: data?.email,
+          email: data?.email,
           time: new Date().toDateString(),
-          message: message,
+          message: data?.message,
         },
         import.meta.env.VITE_EMAIL_JS_PUBLIC_KEY
       );
       setIsSending(false);
-      setMessage('');
-      setEmail('');
+      // setMessage('');
+      // setEmail('');
       setIsOpen(false);
       toast.success('Message recieved.');
     } catch {
@@ -52,8 +69,7 @@ const ContactMe = () => {
     }
   };
 
-  const isDisabled = !isValidEmail(email) || !isValidMessage(message) || isSending;
-
+  const isDisabled = !form.formState.isValid || isSending;
   return (
     <Dialog
       open={open}
@@ -71,65 +87,74 @@ const ContactMe = () => {
         </Button>
       </DialogTrigger>
       <DialogContent className="p-0 shadow-xl rounded-xl [&>button]:hidden">
-        <form
-          onSubmit={handleSubmit}
-          className="flex flex-col w-full items-start justify-start p-8 min-h-80 border-gray-600 rounded-xl bg-white"
-        >
-          <span className="font-semibold text-xl mb-4">Contact me</span>
-          {/* <div className="w-full h-px bg-gray-200 mt-2 mb-4" /> */}
-          <div className="flex-1 w-full gap-y-2 flex flex-col">
-            <Label
-              htmlFor="email"
-              className="text-sm font-md text-gray-600"
-            >
-              Email
-            </Label>
-            <Input
-              type="email"
-              id="email"
-              placeholder="Type your email..."
-              className="border-gray-300"
-              value={email}
-              onChange={e => setEmail(e.target.value)}
-            />
-            <div />
-            <Label
-              htmlFor="message"
-              className="text-sm font-md text-gray-600"
-            >
-              Message
-            </Label>
-            <Textarea
-              className="min-h-24 resize-none"
-              id="message"
-              placeholder="Type your message..."
-              maxLength={240}
-              value={message}
-              onChange={e => setMessage(e.target.value)}
-            />
-          </div>
-          <Button
-            type="submit"
-            className="w-full bg-primary-500 text-white mt-4 disabled:bg-gray-400"
-            disabled={isDisabled}
+        <Form {...form}>
+          <form
+            onSubmit={form.handleSubmit(handleSubmitForm)}
+            className="flex flex-col w-full items-start justify-start p-8 min-h-80 border-gray-600 rounded-xl bg-white"
           >
-            {isSending ? (
-              <Loader
-                height={12}
-                width={12}
-                className="animate-spin"
+            <span className="font-semibold text-xl mb-4">Contact me</span>
+
+            <div className="flex-1 w-full gap-y-2 flex flex-col">
+              <FormField
+                control={form.control}
+                name="email"
+                render={({ field }) => (
+                  <FormItem>
+                    <FormLabel>Email</FormLabel>
+                    <FormControl>
+                      <Input
+                        type="email"
+                        placeholder="Type your email..."
+                        {...field}
+                      />
+                    </FormControl>
+                    <FormMessage className="text-red-900 text-xs" />
+                  </FormItem>
+                )}
               />
-            ) : (
-              <>
-                Send Message
-                <Send
-                  height={10}
-                  width={10}
+              <div />
+              <FormField
+                control={form.control}
+                name="message"
+                render={({ field }) => (
+                  <FormItem>
+                    <FormLabel className="text-sm font-md text-gray-600">Message</FormLabel>
+                    <FormControl>
+                      <Textarea
+                        className="min-h-24 resize-none border-gray-300"
+                        placeholder="Type your message..."
+                        maxLength={240}
+                        {...field}
+                      />
+                    </FormControl>
+                    <FormMessage className="text-red-900 text-xs" />
+                  </FormItem>
+                )}
+              />
+            </div>
+            <Button
+              type="submit"
+              className="w-full bg-primary-500 text-white mt-8 disabled:bg-gray-400 rounded-lg min-h-10"
+              disabled={isDisabled}
+            >
+              {isSending ? (
+                <Loader
+                  height={12}
+                  width={12}
+                  className="animate-spin"
                 />
-              </>
-            )}
-          </Button>
-        </form>
+              ) : (
+                <>
+                  Send Message
+                  <Send
+                    height={10}
+                    width={10}
+                  />
+                </>
+              )}
+            </Button>
+          </form>
+        </Form>
       </DialogContent>
     </Dialog>
   );
