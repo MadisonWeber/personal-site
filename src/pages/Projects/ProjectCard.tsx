@@ -80,20 +80,7 @@ const ProjectCard = ({ project }: Project) => {
             </div>
           </>
         )}
-        <div className="mt-auto ml-auto flex gap-x-2">
-          <a
-            href={project?.githubUrl}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="w-full"
-          >
-            <Button
-              disabled={!project?.githubUrl}
-              className="cursor-pointer rounded-full bg-white hover:bg-green-50 transition duration-200 shadow-md border-black text-black font-medium h-10 w-10"
-            >
-              <Github className={project?.githubUrl ? 'text-green-600' : 'text-gray-300'} />
-            </Button>
-          </a>
+        <div className="mt-auto ml-auto">
           <a
             href={project?.visitUrl}
             target="_blank"

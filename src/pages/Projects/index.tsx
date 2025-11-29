@@ -7,7 +7,7 @@ import SPIFFY_APP_3 from '@/assets/images/projects/spiffyApp/SpiffyApp3.png';
 import SPIFFY_APP_4 from '@/assets/images/projects/spiffyApp/SpiffyApp4.png';
 import SPIFFY_APP_5 from '@/assets/images/projects/spiffyApp/SpiffyApp5.png';
 // Dash
-import SPIFFY_DASH from '@/assets/images/projects/dash/dash1.png';
+
 import DASH_1 from '@/assets/images/projects/dash/dash1.png';
 import DASH_2 from '@/assets/images/projects/dash/dash2.png';
 import DASH_3 from '@/assets/images/projects/dash/dash3.png';
@@ -76,8 +76,8 @@ const PROJECTS = [
     name: 'Spiffy Dashboard',
     description:
       "Spiffy's administration dashboard. Used by company admins to create modules, manage teams, view reports, and add content. Written in React using material ui, styled-components, SWR, zustand, chart-js-2.",
-    image: SPIFFY_DASH,
-    secondaryImages: [DASH_1, DASH_2, DASH_3],
+    image: DASH_1,
+    secondaryImages: [DASH_2, DASH_3],
     filterTags: [
       { Icon: Monitor, name: 'Web Development' },
       { Icon: Atom, name: 'React, Javascript' },

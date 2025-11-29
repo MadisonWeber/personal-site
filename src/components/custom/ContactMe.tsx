@@ -7,13 +7,9 @@ import { Label } from '../ui/label';
 import emailjs from '@emailjs/browser';
 import { Loader } from 'lucide-react';
 import { toast } from 'sonner';
-import {
-  Dialog,
-  DialogContent,
-  DialogTrigger,
-  DialogOverlay,
-} from "@/components/ui/dialog"
+import { Dialog, DialogContent, DialogTrigger, DialogOverlay } from '@/components/ui/dialog';
 import { Tooltip, TooltipTrigger, TooltipContent } from '../ui/tooltip';
+import { TooltipProvider } from '@radix-ui/react-tooltip';
 
 const isValidEmail = (email: string) => {
   const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
@@ -63,34 +59,24 @@ const ContactMe = () => {
       open={open}
       onOpenChange={setIsOpen}
     >
-      <DialogOverlay className='bg-black/30'/>
+      <DialogOverlay className="bg-black/40" />
       <DialogTrigger asChild>
-    <Tooltip>
-      <TooltipTrigger asChild>
-
-        <Button className="fixed bottom-3 right-3 z-50 flex flex-row items-center justify-center bg-white p-5 rounded-full cursor-pointer shadow-lg">
+        <Button className="flex flex-row items-center justify-center bg-white p-5 rounded-full cursor-pointer shadow-lg hover:bg-blue-50">
           <MessageCircleMore
             height={10}
             width={10}
             className="text-sky-900 animate-pulse"
+            onClick={() => setIsOpen(true)}
           />
         </Button>
-      </TooltipTrigger>
-      <TooltipContent sideOffset={4} side='left'  className='p-2 bg-white text-sky-900 rounded-md border-1 border-gray-100 shadow-md'>
-        <span>Contact Me</span>
-      </TooltipContent>
-    </Tooltip>
       </DialogTrigger>
-      <DialogContent
-        
-        className="p-0 shadow-xl"
-      >
+      <DialogContent className="p-0 shadow-xl rounded-xl [&>button]:hidden">
         <form
           onSubmit={handleSubmit}
-          className="flex flex-col w-full items-start justify-start p-4 min-h-80 border-gray-600 rounded-lg bg-white"
+          className="flex flex-col w-full items-start justify-start p-8 min-h-80 border-gray-600 rounded-xl bg-white"
         >
-          <span className="font-semibold">Contact me</span>
-          <div className="w-full h-px bg-gray-200 mt-2 mb-4" />
+          <span className="font-semibold text-xl mb-4">Contact me</span>
+          {/* <div className="w-full h-px bg-gray-200 mt-2 mb-4" /> */}
           <div className="flex-1 w-full gap-y-2 flex flex-col">
             <Label
               htmlFor="email"

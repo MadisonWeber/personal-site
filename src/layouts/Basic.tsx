@@ -1,5 +1,6 @@
 import AppBar from '@/components/custom/AppBar';
 import ContactMe from '@/components/custom/ContactMe';
+import GithubLink from '@/components/custom/GithubLink';
 import { Toaster } from '@/components/ui/sonner';
 
 interface LayoutProps {
@@ -16,7 +17,11 @@ const BasicLayout = ({ children, currentPage, handleGoToPage }: LayoutProps) => 
         handleGoToPage={handleGoToPage}
       />
       <div className="flex-1 w-full overflow-y-auto scroll-snap-container">{children}</div>
-      <ContactMe />
+      <div className="absolute bottom-4 right-4 flex flex-row gap-x-4">
+        <ContactMe />
+
+        <GithubLink />
+      </div>
       <Toaster position="bottom-left" />
     </div>
   );
