@@ -1,9 +1,8 @@
-import React, { useState, type FormEvent } from 'react';
+import { useState } from 'react';
 import { Send, MessageCircleMore } from 'lucide-react';
 import { Button } from '../ui/button';
 import { Input } from '../ui/input';
 import { Textarea } from '../ui/textarea';
-import { Label } from '../ui/label';
 import emailjs from '@emailjs/browser';
 import { Loader } from 'lucide-react';
 import { toast } from 'sonner';

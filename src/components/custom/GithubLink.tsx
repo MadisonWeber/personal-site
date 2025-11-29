@@ -1,6 +1,5 @@
 import { Button } from '../ui/button';
 import { Github } from 'lucide-react';
-import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from '@/components/ui/tooltip';
 
 const GithubLink = () => (
   <a

@@ -1,6 +1,6 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import { Button } from '../../components/ui/button';
-import { Github, Link, Tag, type LucideIcon } from 'lucide-react';
+import { Link, type LucideIcon } from 'lucide-react';
 import MultiImageDisplay from './MultiImageDisplay';
 
 type FilterTag = {
@@ -9,26 +9,20 @@ type FilterTag = {
 };
 
 type ProjectProps = {
-  project: Project;
   filterTags: FilterTag[];
   secondaryImages?: string[];
   description: string;
   name: string;
   image: string;
-  githubUrl?: string;
   visitUrl?: string;
   isMobile: boolean;
-};
-
-type Project = {
-  project: ProjectProps;
 };
 
 const DisplayAppImages = ({ imageArray }: { imageArray: string[] }) => (
   <div className="flex gap-x-4">
     {imageArray.map(src => (
       <img
-        className="h-50 aspect-[9/19] border rounded-xl border-gray-300 shadow-md"
+        className="h-50 aspect-9/19 border rounded-xl border-gray-300 shadow-md"
         src={src}
         alt="project"
       />
@@ -36,14 +30,14 @@ const DisplayAppImages = ({ imageArray }: { imageArray: string[] }) => (
   </div>
 );
 
-const ProjectCard = ({ project }: Project) => {
+const ProjectCard = ({ project }: { project: ProjectProps }) => {
   const [activeImg, setActiveImg] = useState(project?.image);
 
   return (
     <div className="min-h-164 w-160 rounded-xl p-5 bg-gray-50 shadow-lg flex border border-gray-100 flex-col items-start justify-start">
       <div className="p-2 flex-1 flex flex-col items-start justify-start">
         <p className="text-lg font-semibold text-black">{project.name}</p>
-        <p className="mt-2 text-sm text-gray-500 max-w-9/10 mt-4">{project.description}</p>
+        <p className="text-sm text-gray-500 max-w-9/10 mt-4">{project.description}</p>
         <div className="flex flex-col gap-2 gap-y-0.5 mt-2 flex-wrap py-2">
           {project?.filterTags &&
             project.filterTags.map(({ Icon, name }) => (
@@ -63,7 +57,7 @@ const ProjectCard = ({ project }: Project) => {
           />
         )}
         {project.isMobile && (
-          <DisplayAppImages imageArray={[project.image, ...project?.secondaryImages]} />
+          <DisplayAppImages imageArray={[project.image, ...(project?.secondaryImages ?? [])]} />
         )}
         {project.isMobile && (
           <>

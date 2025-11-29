@@ -26,6 +26,51 @@ import MOBX from '@/assets/images/stack/mobx.png';
 import REDUX from '@/assets/images/stack/redux-4.png';
 import MUI from '@/assets/images/stack/MUI.png';
 import VERCEL from '@/assets/images/stack/vercel-2.png';
+/// Stack
+
+// App
+import SPIFFY_APP_1 from '@/assets/images/projects/spiffyApp/SpifyApp1.png';
+import SPIFFY_APP_2 from '@/assets/images/projects/spiffyApp/SpiffyApp2.png';
+import SPIFFY_APP_3 from '@/assets/images/projects/spiffyApp/SpiffyApp3.png';
+import SPIFFY_APP_4 from '@/assets/images/projects/spiffyApp/SpiffyApp4.png';
+import SPIFFY_APP_5 from '@/assets/images/projects/spiffyApp/SpiffyApp5.png';
+// Dash
+
+import DASH_1 from '@/assets/images/projects/dash/dash1.png';
+import DASH_2 from '@/assets/images/projects/dash/dash2.png';
+import DASH_3 from '@/assets/images/projects/dash/dash3.png';
+// Web App
+import WEB_APP_1 from '@/assets/images/projects/webapp/one.png';
+import WEB_APP_2 from '@/assets/images/projects/webapp/two.png';
+import WEB_APP_3 from '@/assets/images/projects/webapp/three.png';
+import WEB_APP_4 from '@/assets/images/projects/webapp/four.png';
+// Cert Site
+import CERT_1 from '@/assets/images/projects/cert/one.png';
+import CERT_2 from '@/assets/images/projects/cert/two.png';
+import CERT_3 from '@/assets/images/projects/cert/three.png';
+import CERT_4 from '@/assets/images/projects/cert/four.png';
+// Data Science
+import DS_ONE from '@/assets/images/projects/dataScience/one.png';
+import DS_TWO from '@/assets/images/projects/dataScience/two.png';
+import DS_FOUR from '@/assets/images/projects/dataScience/four.png';
+import DS_FIVE from '@/assets/images/projects/dataScience/five.png';
+// Other
+import OTHER_ONE from '@/assets/images/projects/other/one.png';
+import OTHER_TWO from '@/assets/images/projects/other/two.png';
+import OTHER_THREE from '@/assets/images/projects/other/three.png';
+import OTHER_FOUR from '@/assets/images/projects/other/four.png';
+
+import {
+  Atom,
+  Smartphone,
+  Box,
+  Server,
+  Monitor,
+  Paintbrush2,
+  Github,
+  FlaskConical,
+  Calculator,
+} from 'lucide-react';
 
 export const CATEGORIES = {
   LANGUAGE: 'Languages',
@@ -347,5 +392,110 @@ export const STACK_LIST = [
       'Frontend cloud platform optimized for Next.js and modern web frameworks. Experience with zero-configuration deployments, serverless functions, edge computing, preview deployments, and custom domain management.',
     category: CATEGORIES.PLATFORMS,
     img: VERCEL,
+  },
+];
+
+export const PROJECT_LIST = [
+  {
+    name: 'Spiffy Mobile App',
+    description:
+      "Spiffy's flagship product, a cross-platform mobile app written in React Native. Provides all end-user LMS functionality for the Spiffy platform. Primary LMS tool for large canadian retailers Milestones, Second Cup, Pita Pit, and many more.",
+    image: SPIFFY_APP_1,
+    secondaryImages: [SPIFFY_APP_2, SPIFFY_APP_3, SPIFFY_APP_4, SPIFFY_APP_5],
+    filterTags: [
+      { Icon: Smartphone, name: 'Mobile Development' },
+      { Icon: Atom, name: 'React, React Native' },
+      {
+        Icon: Box,
+        name: 'Axios, MobX, Async-Storage, Firebase, Flashlist, Notifications, Jest',
+      },
+      { Icon: Paintbrush2, name: 'CSS, StyleSheets' },
+      { Icon: Github, name: 'Git, Github' },
+      { Icon: Server, name: 'Apple Appstore, Google Playstore' },
+    ],
+    isMobile: true,
+
+    visitUrl: 'https://apps.apple.com/ca/app/spiffy/id1138634357',
+  },
+  {
+    name: 'Spiffy Dashboard',
+    description:
+      "Spiffy's administration dashboard. Used by company admins to create modules, manage teams, view reports, and add content. Written in React using material ui, styled-components, SWR, zustand, chart-js-2.",
+    image: DASH_1,
+    secondaryImages: [DASH_2, DASH_3],
+    filterTags: [
+      { Icon: Monitor, name: 'Web Development' },
+      { Icon: Atom, name: 'React, Javascript' },
+      { Icon: Box, name: 'MUI-Datatables, Axios, Zustand' },
+      { Icon: Paintbrush2, name: 'Material-UI, Styled-Components' },
+      { Icon: Github, name: 'Git, Github' },
+      { Icon: Server, name: 'Netlifty' },
+    ],
+    isMobile: false,
+
+    visitUrl: 'https://dashboard.withspiffy.com/',
+  },
+  {
+    name: 'Spiffy Web App',
+    description:
+      "Web application of Spiffy's mobile app. Includes all functionality for users to complete modules & stay up to date with their training. Linked to mobile app via Universal Links.",
+    image: WEB_APP_4,
+    secondaryImages: [WEB_APP_2, WEB_APP_3, WEB_APP_1],
+    filterTags: [
+      { Icon: Monitor, name: 'Web Development' },
+      { Icon: Atom, name: 'React, Javascript' },
+      { Icon: Box, name: 'React Query, Zustand, Axios' },
+      { Icon: Paintbrush2, name: 'Material-UI, Styled-Components' },
+      { Icon: Github, name: 'Git, Github' },
+      { Icon: Server, name: 'Netlifty' },
+    ],
+    isMobile: false,
+
+    visitUrl: 'https://learn.withspiffy.com',
+  },
+  {
+    name: 'Oliver Certifications Ecommerce Site',
+    description:
+      'Ecommerce site created to allow for the purchase of certificiations for Oliver Solutions. Complete stripe payment integration. Written in React with Tailwind, Shadcn & Zustand.',
+    image: CERT_1,
+    secondaryImages: [CERT_2, CERT_3, CERT_4],
+    filterTags: [
+      { Icon: Monitor, name: 'Web Development' },
+      { Icon: Atom, name: 'React, Typescript' },
+      { Icon: Box, name: 'Axios, Zustand, Context, Formik' },
+      { Icon: Paintbrush2, name: 'Material-UI, Styled-Components' },
+      { Icon: Github, name: 'Git, Github' },
+      { Icon: Server, name: 'Netlifty' },
+    ],
+    isMobile: false,
+
+    visitUrl: 'https://certifications.withspiffy.com/',
+  },
+  {
+    name: 'Data Science Projects',
+    description:
+      'Machine learning, data visualization & statstics projects i have worked on. Some of these projects were submitted to Kaggle in competitions. Written in R and complied with R Markdown.',
+    image: DS_ONE,
+    secondaryImages: [DS_TWO, DS_FOUR, DS_FIVE],
+    filterTags: [
+      { Icon: FlaskConical, name: 'Data Science' },
+      { Icon: Calculator, name: 'R, R-Studio' },
+      { Icon: Box, name: 'Data Cleaning, Maching Learning, Statistics, Data Visualization' },
+      { Icon: Server, name: 'R Markdown, Kaggle' },
+    ],
+    isMobile: false,
+
+    visitUrl: 'https://www.kaggle.com/madison88/code',
+  },
+
+  {
+    name: 'Other Website Projects',
+    description:
+      'A bunch of website layout projects i have completed. Practicing advanced CSS, responsiveness and pixel perfect layouts.',
+    secondaryImages: [OTHER_TWO, OTHER_THREE, OTHER_FOUR],
+    filterTags: [{ Icon: FlaskConical, name: 'test' }],
+    image: OTHER_ONE,
+    visitUrl: 'https://frontend-mentor-easybank.madisonweber.vercel.app/',
+    isMobile: false,
   },
 ];

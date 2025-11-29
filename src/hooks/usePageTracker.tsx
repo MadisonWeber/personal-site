@@ -1,5 +1,6 @@
 // In your App.tsx, add this hook at the top
-import { useEffect, useCallback, RefObject } from 'react';
+import { useEffect, useCallback } from 'react';
+import type { RefObject } from 'react';
 
 interface PageRefs {
   landingRef: RefObject<HTMLDivElement>;
@@ -12,7 +13,7 @@ const usePageTracker = (refs: PageRefs, setCurrentPage: (pageName: string) => vo
   const handleIntersection = useCallback(
     (entries: IntersectionObserverEntry[]) => {
       // Find the entry with the highest intersection ratio
-      let mostVisible = null;
+      let mostVisible: IntersectionObserverEntry | null = null;
       let highestRatio = 0;
 
       entries.forEach(entry => {
@@ -24,8 +25,11 @@ const usePageTracker = (refs: PageRefs, setCurrentPage: (pageName: string) => vo
 
       // Update current page if we have a significantly visible page
       if (mostVisible && highestRatio > 0.3) {
-        const pageName = mostVisible.target.getAttribute('data-page');
-        setCurrentPage(pageName);
+        const target = mostVisible.target as HTMLElement;
+        const pageName = target.getAttribute('data-page');
+        if (pageName) {
+          setCurrentPage(pageName);
+        }
       }
     },
     [setCurrentPage]
