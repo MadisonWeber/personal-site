@@ -73,3 +73,7 @@ function App() {
 }
 
 export default App;
+
+// TODO
+// Optimize images
+// Redesign Landing Page
