@@ -24,7 +24,7 @@ const ProjectPage = () => {
 
   return (
     <div className="bg-gray-100 page-wrapper flex flex-col items-center justify-center p-10">
-      <div className="bg-white rounded-md shadow-xl p-8 min-h-220 w-200 flex flex-col items-start justify-start">
+      <div className="bg-white rounded-md shadow-xl p-8 min-h-220 w-[96vw] md:w-180 flex flex-col items-start justify-start">
         <h3 className="text-2xl font-semibold font-josefin text-black mb-0">Projects</h3>
         <div className="w-full flex flex-1 items-center justify-start flex-col gap-y-2 p-0">
           <Carousel

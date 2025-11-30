@@ -9,9 +9,9 @@ interface AppBarProps {
 
 const AppBar = ({ currentPage, handleGoToPage }: AppBarProps) => {
   return (
-    <div className="z-10 font-josefin w-full min-h-16 bg-white flex flex-row items-center justify-start p-3.5 pr-10 pl-10 border border-gray-200 gap-x-10 shadow-bottom">
+    <div className="z-10 gap-x-2 md:gap-x-10 font-josefin w-full min-h-16 bg-white flex flex-row items-center justify-start p-3.5 pr-10 pl-10 border border-gray-200 shadow-bottom">
       <Button
-        className={`hover:bg-gray-50 cursor-pointer flex flex-row gap-x-2 items-center justify-center p-1} ${
+        className={`hover:bg-gray-50 cursor-pointer flex-row gap-x-2 items-center justify-center p-1 flex } ${
           currentPage === PAGES.LANDING && 'bg-gray-100'
         }`}
         onClick={() => handleGoToPage(PAGES.LANDING)}
@@ -21,9 +21,9 @@ const AppBar = ({ currentPage, handleGoToPage }: AppBarProps) => {
             currentPage === PAGES.LANDING && 'text-secondary-500'
           }`}
         />
-        <span className="leading-none font-josefin font-semibold text-md -mb-0.5">
+        <p className="leading-none font-josefin font-semibold text-md -mb-0.5 sm:block hidden">
           Madison Weber
-        </span>
+        </p>
       </Button>
       <div style={{ marginLeft: 'auto' }} />
       <Button
@@ -37,7 +37,7 @@ const AppBar = ({ currentPage, handleGoToPage }: AppBarProps) => {
             currentPage === PAGES.ABOUT && 'text-secondary-500'
           }`}
         />
-        <span className="text-md leading-0 -mb-0.5">About</span>
+        <p className="text-md leading-0 -mb-0.5 sm:block hidden">About</p>
       </Button>
       <Button
         className={`hover:bg-gray-50 cursor-pointer flex flex-row gap-x-2 items-center justify-center p-1} ${
@@ -50,7 +50,7 @@ const AppBar = ({ currentPage, handleGoToPage }: AppBarProps) => {
             currentPage === PAGES.STACK && 'text-secondary-500'
           }`}
         />
-        <span className="text-md leading-0 -mb-0.5">Tech Stack</span>
+        <p className="text-md leading-0 -mb-0.5 sm:block hidden">Tech Stack</p>
       </Button>
       <Button
         className={`hover:bg-gray-50 cursor-pointer flex flex-row gap-x-2 items-center justify-center p-1} ${
@@ -63,7 +63,7 @@ const AppBar = ({ currentPage, handleGoToPage }: AppBarProps) => {
             currentPage === PAGES.PROJECTS && 'text-secondary-500'
           }`}
         />
-        <span className="text-md leading-0 -mb-0.5">Projects</span>
+        <p className="text-md leading-0 -mb-0.5 sm:block hidden">Projects</p>
       </Button>
     </div>
   );

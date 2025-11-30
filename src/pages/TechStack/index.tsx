@@ -6,7 +6,7 @@ const SMALL_CATEGORIES = [CATEGORIES.PLATFORMS, CATEGORIES.MONITORING, CATEGORIE
 const TechStack = () => {
   return (
     <div className="bg-gray-200 page-wrapper flex flex-col items-center justify-center p-10">
-      <div className="bg-white rounded-md shadow-xl p-8 min-h-220 w-180 flex flex-col items-start justify-start">
+      <div className="bg-white w-[96vw] md:w-180 rounded-md shadow-xl p-8 min-h-220 flex flex-col items-start justify-start">
         <div className="flex flex-row gap-x-3 border-0 items-center justify-between w-full">
           <h4 className="text-2xl font-semibold font-josefin text-black">Tech Stack</h4>
         </div>
