@@ -3,10 +3,10 @@ import { useEffect, useCallback } from 'react';
 import type { RefObject } from 'react';
 
 interface PageRefs {
-  landingRef: RefObject<HTMLDivElement>;
-  aboutRef: RefObject<HTMLDivElement>;
-  stackRef: RefObject<HTMLDivElement>;
-  projectsRef: RefObject<HTMLDivElement>;
+  landingRef: RefObject<HTMLDivElement | null>;
+  aboutRef: RefObject<HTMLDivElement | null>;
+  stackRef: RefObject<HTMLDivElement | null>;
+  projectsRef: RefObject<HTMLDivElement | null>;
 }
 
 const usePageTracker = (refs: PageRefs, setCurrentPage: (pageName: string) => void) => {
@@ -25,7 +25,7 @@ const usePageTracker = (refs: PageRefs, setCurrentPage: (pageName: string) => vo
 
       // Update current page if we have a significantly visible page
       if (mostVisible && highestRatio > 0.3) {
-        const target = mostVisible.target as HTMLElement;
+        const target = (mostVisible as IntersectionObserverEntry).target as HTMLElement;
         const pageName = target.getAttribute('data-page');
         if (pageName) {
           setCurrentPage(pageName);
