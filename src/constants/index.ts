@@ -493,7 +493,7 @@ export const PROJECT_LIST = [
     description:
       'A bunch of website layout projects i have completed. Practicing advanced CSS, responsiveness and pixel perfect layouts.',
     secondaryImages: [OTHER_TWO, OTHER_THREE, OTHER_FOUR],
-    filterTags: [{ Icon: FlaskConical, name: 'test' }],
+    filterTags: [],
     image: OTHER_ONE,
     visitUrl: 'https://frontend-mentor-easybank.madisonweber.vercel.app/',
     isMobile: false,
