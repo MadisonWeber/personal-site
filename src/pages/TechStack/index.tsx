@@ -1,4 +1,3 @@
-import React from 'react';
 import { STACK_LIST, CATEGORIES } from '@/constants';
 import TechItem from './TechItem';
 

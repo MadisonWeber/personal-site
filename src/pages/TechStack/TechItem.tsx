@@ -1,4 +1,3 @@
-import React from 'react';
 import { HoverCard, HoverCardContent, HoverCardTrigger } from '@/components/ui/hover-card';
 
 const Wrapper = 'bg-gray-50 p-1 rounded-xl shadow-md';

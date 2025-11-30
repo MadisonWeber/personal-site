@@ -1,4 +1,3 @@
-import React from 'react';
 import { Code, House, FolderGit2, ShieldUser } from 'lucide-react';
 import { Button } from '../ui/button';
 import { PAGES } from '@/routes';
