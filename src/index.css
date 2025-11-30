@@ -134,23 +134,14 @@ body {
   .page-wrapper {
     min-height: calc(100vh - 4rem); /* Account for AppBar height */
     width: 100%;
-    /* background-color: #eeeeee; */
-    /* border: 1px solid black; */
     scroll-snap-align: start;
     scroll-snap-stop: always;
     position: relative;
   }
 
-  /* .primary-card {
-    background-color:  'white';
-    display:'flex';
-    justify-content: 'center';
-    align-items: 'center';
+  
 
 
-
-    bg-white rounded-md shadow-xl p-8 min-h-140 min-w-180 flex flex-col items-start justify-start
-  } */
 
   /* Shadow Utilities */
   .shadow-bottom {

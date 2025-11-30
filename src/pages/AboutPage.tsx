@@ -44,17 +44,15 @@ const highlightClass = 'font-semibold text-black';
 const AboutPage = () => {
   return (
     <div className="page-wrapper bg-gray-100 flex flex-col items-center justify-center">
-      {/* <div className="bg-white rounded-md shadow-md h-30 w-30" /> */}
-
-      <div className="p-8 min-h-110 min-w-180 border-0 shadow-xl shadow-inset bg-white rounded-md flex flex-col items-start justify-start">
+      <div className="p-4 sm:p-6 md:p-8 min-h-110 w-[96vw] md:w-180 shadow-xl bg-white rounded-md flex flex-col items-start justify-start">
         <h3 className="text-2xl font-semibold font-josefin text-black">About</h3>
         <div className="min-h-4" />
-        <div className="flex flex-row gap-x-8 items-start justify-start w-full">
-          <div className="flex-1 h-full flex flex-col items-start justify-start bg-gray-100 flex-wrap max-h-100 border-0 shadow-lg rounded-xl p-2.5 gap-y-2.5">
+        <div className="flex flex-col-reverse sm:flex-row gap-8 items-start justify-start w-full">
+          <div className="flex-1 h-full w-full flex flex-col flex-grow items-start justify-start bg-gray-100 flex-wrap max-h-100  shadow-lg rounded-xl p-2.5 gap-y-2.5">
             {ABOUT_ITEMS.map(item => (
               <div
                 key={item.title}
-                className="flex gap-x-3 flex-row bg-white items-center justify-start w-full h-11 border-0 p-3 rounded-md shadow-md"
+                className="flex gap-x-3 flex-row bg-white items-center justify-start w-full h-11  p-3 rounded-md shadow-md"
               >
                 <item.Icon
                   height={18}
@@ -68,14 +66,12 @@ const AboutPage = () => {
           <div className="p-2 bg-gray-200 rounded-xl shadow-xl shrink-0">
             <img
               src={MY_PICTURE}
-              className="aspect-7/9 h-40 object-fit rounded-xl"
+              className="aspect-7/9 h-26 sm:h-40 object-fit rounded-xl"
             />
           </div>
         </div>
         <div className="p-2.5 max-w-164 w-full bg-gray-100 shadow-lg rounded-xl mt-8">
           <div className="p-4 pl-3 bg-white rounded-xl shadow-md">
-            {/* <p className="text-sm  text-gray-800 ">A Little About Me</p> */}
-
             <div className="flex flex-start items-center justify-start gap-x-2 mt-0">
               <Code
                 height={14}
