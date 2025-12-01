@@ -54,19 +54,19 @@ function App() {
         ref={aboutRef}
         data-page={PAGES.ABOUT}
       >
-        <AboutPage />
+        <AboutPage isInViewport={currentPage === PAGES.ABOUT} />
       </div>
       <div
         ref={stackRef}
         data-page={PAGES.STACK}
       >
-        <TechStack />
+        <TechStack isInViewport={currentPage === PAGES.STACK} />
       </div>
       <div
         ref={projectsRef}
         data-page={PAGES.PROJECTS}
       >
-        <ProjectPage />
+        <ProjectPage isInViewport={currentPage === PAGES.PROJECTS} />
       </div>
     </BasicLayout>
   );
@@ -77,3 +77,4 @@ export default App;
 // TODO
 // Optimize images
 // Redesign Landing Page
+// Animated Titles
