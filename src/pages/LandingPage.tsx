@@ -8,7 +8,7 @@ import NextImg from '../assets/images/stack/next.png';
 const LandingPage = () => {
   return (
     <div className="page-wrapper flex-1 h-full bg-white flex flex-col items-center justify-center p-8">
-      <div className="w-auto h-170 flex flex-row relative border-0 gap-x-0">
+      <div className="w-auto h-[76vh] flex flex-row relative border-2 gap-x-0 shadow-lg">
         <div className="rounded-none lg:rounded-md z-1 p-4 bg-black/60 backdrop-blur-xs shadow-2xl absolute min-w-full lg:min-w-150 top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 border-0 border-white/40">
           <div className="p-6 border-0 rounded-md bg-transparent shadow-none flex flex-col items-center justify-center">
             <h1 className="text-3xl font-josefin sm:text-5xl font-bold text-white text-center leading-none font-sf">
