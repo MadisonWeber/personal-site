@@ -1,31 +1,29 @@
-import REACT_IMG from '@/assets/images/stack/react.png';
-import REACT_NATIVE_IMG from '@/assets/images/stack/native-2.png';
-import NEXT_IMG from '@/assets/images/stack/next.png';
-import JAVASCRIPT_IMG from '@/assets/images/stack/js-2.png';
-import TYPESCRIPT_IMG from '@/assets/images/stack/ts.png';
-import REACT_QUERY_IMG from '@/assets/images/stack/react-query.webp';
-import XCODE_IMG from '@/assets/images/stack/xcode-2.webp';
-import HTML from '@/assets/images/stack/html.png';
-import CSS from '@/assets/images/stack/css.jpg';
-import GIT from '@/assets/images/stack/git.png';
-import TAILWIND from '@/assets/images/stack/tailwind.png';
-import FIGMA from '@/assets/images/stack/figma.png';
-import STYLED from '@/assets/images/stack/s-c.png';
-import ZUSTAND from '@/assets/images/stack/zustand.png';
-import STRIPE from '@/assets/images/stack/stripe-2.webp';
-import EXPO from '@/assets/images/stack/expo.png';
-import NETLIFY from '@/assets/images/stack/netlify.png';
-import SENTRY from '@/assets/images/stack/sentry.svg';
-import SWR from '@/assets/images/stack/SWR.png';
-import VS_CODE from '@/assets/images/stack/vs-3.png';
-import ANDROID_STUDIO from '@/assets/images/stack/android-studio.png';
-import JIRA from '@/assets/images/stack/jira.webp';
-import AXIOS from '@/assets/images/stack/axios.png';
-import AMPLITUDE from '@/assets/images/stack/amplitude.webp';
-import MOBX from '@/assets/images/stack/mobx.png';
-import REDUX from '@/assets/images/stack/redux-4.png';
-import MUI from '@/assets/images/stack/MUI.png';
-import VERCEL from '@/assets/images/stack/vercel-2.png';
+import REACT_IMG from '@/assets/images/stackOptimized/react.avif';
+import REACT_NATIVE_IMG from '@/assets/images/stackOptimized/react-native.avif';
+import NEXT_IMG from '@/assets/images/stackOptimized/next.avif';
+import JAVASCRIPT_IMG from '@/assets/images/stackOptimized/js-2.avif';
+import TYPESCRIPT_IMG from '@/assets/images/stackOptimized/ts.avif';
+import REACT_QUERY_IMG from '@/assets/images/stackOptimized/react-query.avif';
+import HTML from '@/assets/images/stackOptimized/html.avif';
+import CSS from '@/assets/images/stackOptimized/css.avif';
+import GIT from '@/assets/images/stackOptimized/git.avif';
+import TAILWIND from '@/assets/images/stackOptimized/tailwind.avif';
+import FIGMA from '@/assets/images/stackOptimized/figma.avif';
+import STYLED from '@/assets/images/stackOptimized/s-c.avif';
+import ZUSTAND from '@/assets/images/stackOptimized/zustand.avif';
+import EXPO from '@/assets/images/stackOptimized/expo.avif';
+import SWR from '@/assets/images/stackOptimized/SWR.avif';
+import JIRA from '@/assets/images/stackOptimized/jira.avif';
+import MOBX from '@/assets/images/stackOptimized/mobx.avif';
+import REDUX from '@/assets/images/stackOptimized/redux.avif';
+import MUI from '@/assets/images/stackOptimized/mui.avif';
+import VS_CODE from '@/assets/images/stackOptimized/vs-code.avif';
+import XCODE_IMG from '@/assets/images/stackOptimized/xcode.avif';
+import SENTRY from '@/assets/images/stackOptimized/sentry.avif';
+import AMPLITUDE from '@/assets/images/stackOptimized/amplitude.avif';
+import ANDROID_STUDIO from '@/assets/images/stackOptimized/android-studio.avif';
+import NETLIFY from '@/assets/images/stackOptimized/netlify.avif';
+import VERCEL from '@/assets/images/stackOptimized/vercel.avif';
 /// Stack
 
 // App
@@ -203,7 +201,7 @@ export const STACK_LIST = [
     description:
       'Collaborative design tool for creating wireframes and mockups. Experience working with design systems, components, and developer handoff workflows.',
     img: FIGMA,
-    category: CATEGORIES.TOOLING,
+    category: CATEGORIES.STYLING,
   },
   {
     name: 'Styled Components',
@@ -272,16 +270,6 @@ export const STACK_LIST = [
     img: MOBX,
   },
   {
-    name: 'Stripe',
-    level: 5,
-    exposure: 3,
-    confidence: 4,
-    experience: 3,
-    description: 'Payment processing integration for secure online transactions',
-    category: CATEGORIES.TOOLING,
-    img: STRIPE,
-  },
-  {
     name: 'Expo',
     level: 5,
     exposure: 3,
@@ -291,17 +279,6 @@ export const STACK_LIST = [
       'React Native development platform for streamlined mobile app development. Experience with Expo CLI, EAS Build, OTA updates, and native module integration for iOS and Android.',
     category: CATEGORIES.FRAMEWORK,
     img: EXPO,
-  },
-  {
-    name: 'Axios',
-    level: 8,
-    exposure: 6,
-    confidence: 6,
-    experience: 8,
-    description:
-      'Promise-based HTTP client for API communication. Extensive experience with interceptors, error handling, request/response transformation, and authentication patterns in production environments.',
-    category: CATEGORIES.TOOLING,
-    img: AXIOS,
   },
   {
     name: 'Netlify',
