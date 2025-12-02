@@ -45,7 +45,8 @@ const highlightClass = 'font-semibold text-black';
 
 const AboutPage = ({ isInViewport }: { isInViewport: boolean }) => {
   return (
-    <div className="page-wrapper bg-gray-100 flex flex-col items-center justify-center">
+    <div className="page-wrapper bg-gray-100 flex flex-col items-center justify-center" 
+    >
       <div className="relative">
         <AnimatedTitle
           title="About"

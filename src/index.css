@@ -137,7 +137,8 @@ body {
     scroll-snap-align: start;
     scroll-snap-stop: always;
     position: relative;
-    padding: 20px;
+    padding: 40px;
+    padding-top: 80px;
   }
 
   
