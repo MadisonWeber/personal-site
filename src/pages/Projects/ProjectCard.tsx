@@ -19,7 +19,7 @@ type ProjectProps = {
 };
 
 const DisplayAppImages = ({ imageArray }: { imageArray: string[] }) => (
-  <div className="flex gap-x-4">
+  <div className="flex gap-x-4 w-full overflow-auto">
     {imageArray.map(src => (
       <img
         className="h-50 aspect-9/19 border rounded-xl border-gray-300 shadow-md"
@@ -62,7 +62,7 @@ const ProjectCard = ({ project }: { project: ProjectProps }) => {
           )}
           {project.isMobile && (
             <>
-              <div className="w-full flex gap-x-4 p-3 mt-4">
+              <div className="w-full flex sm:flex-row flex-col gap-x-4 gap-y-1 p-3 mt-4">
                 <span className="text-xs font-light text-gray-400">
                   ⭐ <b>4.4</b>/5 Appstore Rating
                 </span>

@@ -14,9 +14,9 @@ const TechItemV2 = ({ item }: { item: ItemProps }) => {
     >
       <HoverCardTrigger asChild>
         <div className="p-1.5 rounded-lg bg-gray-50 shadow-lg flex items-center justify-center gap-x-1">
-          <div className="flex gap-x-2 items-center bg-white justify-center p-1 pr-2.5 rounded-md shadow-md hover:bg-gray-50 hover:shadow-sm cursor-pointer border transition duration-200  border-gray-100  hover:border-sky-800">
+          <div className="flex gap-x-2 items-center bg-white justify-center p-0.5 sm:p-1 pr-2.5 rounded-md shadow-md hover:bg-gray-50 hover:shadow-sm cursor-pointer border transition duration-200  border-gray-100  hover:border-sky-800">
             <img
-              className="cover p-0.5 w-10 h-10 border border-gray-200 rounded-full bg-white"
+              className="cover p-0.5 h-8 w-8 sm:w-10 sm:h-10 border border-gray-200 rounded-full bg-white"
               src={item.img}
             />
             <span className="font-semibold text-sm text-sky-950">{item.name}</span>
