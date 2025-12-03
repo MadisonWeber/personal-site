@@ -122,7 +122,7 @@ export const STACK_LIST = [
     level: 8,
     description:
       'Advanced CSS skills including Flexbox, Grid, animations, transitions, and responsive design. Strong focus on modern CSS features, performance optimization, and cross-browser compatibility.',
-    category: CATEGORIES.LANGUAGE,
+    category: CATEGORIES.STYLING,
     img: CSS,
   },
   {

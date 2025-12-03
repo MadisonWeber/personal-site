@@ -1,10 +1,7 @@
 import { STACK_LIST, CATEGORIES } from '@/constants';
-import TechItem from './TechItem';
 import AnimatedTitle from '@/components/custom/AnimatedTitle';
 import { Code } from 'lucide-react';
 import TechItemV2 from './TechItemV2';
-
-const SMALL_CATEGORIES = [CATEGORIES.PLATFORMS, CATEGORIES.MONITORING, CATEGORIES.TOOLING];
 
 const TechStack = ({ isInViewport }: { isInViewport: boolean }) => {
   return (
@@ -28,8 +25,7 @@ const TechStack = ({ isInViewport }: { isInViewport: boolean }) => {
                   {STACK_LIST.filter(item => item.category === category).map(item => (
                     <TechItemV2
                       item={item}
-                      key={item?.name}
-                      // isSmall={SMALL_CATEGORIES.includes(item.category)}
+                      key={item?.name}                    
                     />
                   ))}
                 </div>

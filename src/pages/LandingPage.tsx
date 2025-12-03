@@ -1,9 +1,6 @@
 import ImageOne from '../assets/images/hero/hero-one.avif';
 import ImageTwo from '../assets/images/hero/hero-two.avif';
 import ImageThree from '../assets/images/hero/hero-three.avif';
-import ReactImg from '../assets/images/stackOptimized/react.avif';
-import TypescriptImg from '../assets/images/stackOptimized/ts.avif';
-import NextImg from '../assets/images/stackOptimized/next.avif';
 
 const LandingPage = () => {
   return (
