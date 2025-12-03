@@ -2,6 +2,8 @@ import { useState } from 'react';
 import { Button } from '../../components/ui/button';
 import { Link, type LucideIcon } from 'lucide-react';
 import MultiImageDisplay from './MultiImageDisplay';
+import { LazyLoadImage } from 'react-lazy-load-image-component';
+import 'react-lazy-load-image-component/src/effects/blur.css';
 
 type FilterTag = {
   Icon: LucideIcon;
@@ -21,10 +23,11 @@ type ProjectProps = {
 const DisplayAppImages = ({ imageArray }: { imageArray: string[] }) => (
   <div className="flex gap-x-4 w-full overflow-auto">
     {imageArray.map(src => (
-      <img
+      <LazyLoadImage
         className="h-50 aspect-9/19 border rounded-xl border-gray-300 shadow-md"
         src={src}
         alt="project"
+        effect="blur"
       />
     ))}
   </div>

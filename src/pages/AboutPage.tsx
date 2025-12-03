@@ -15,6 +15,8 @@ import {
 } from 'lucide-react';
 import { clsx } from 'clsx';
 import AnimatedTitle from '@/components/custom/AnimatedTitle';
+import { LazyLoadImage } from 'react-lazy-load-image-component';
+import 'react-lazy-load-image-component/src/effects/blur.css';
 
 const ABOUT_ITEMS = [
   {
@@ -45,8 +47,7 @@ const highlightClass = 'font-semibold text-black';
 
 const AboutPage = ({ isInViewport }: { isInViewport: boolean }) => {
   return (
-    <div className="page-wrapper bg-gray-100 flex flex-col items-center justify-center" 
-    >
+    <div className="page-wrapper bg-gray-100 flex flex-col items-center justify-center">
       <div className="relative">
         <AnimatedTitle
           title="About"
@@ -75,7 +76,7 @@ const AboutPage = ({ isInViewport }: { isInViewport: boolean }) => {
               ))}
             </div>
             <div className="p-2 bg-gray-200 rounded-xl shadow-xl shrink-0">
-              <img
+              <LazyLoadImage
                 src={MY_PICTURE}
                 className="aspect-7/9 h-26 sm:h-40 object-fit rounded-xl"
               />
