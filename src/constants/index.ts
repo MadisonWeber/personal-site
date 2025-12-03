@@ -27,36 +27,36 @@ import VERCEL from '@/assets/images/stackOptimized/vercel.avif';
 /// Stack
 
 // App
-import SPIFFY_APP_1 from '@/assets/images/projects/spiffyApp/SpifyApp1.png';
-import SPIFFY_APP_2 from '@/assets/images/projects/spiffyApp/SpiffyApp2.png';
-import SPIFFY_APP_3 from '@/assets/images/projects/spiffyApp/SpiffyApp3.png';
-import SPIFFY_APP_4 from '@/assets/images/projects/spiffyApp/SpiffyApp4.png';
-import SPIFFY_APP_5 from '@/assets/images/projects/spiffyApp/SpiffyApp5.png';
+import SPIFFY_APP_1 from '@/assets/images/projects/spiffyApp/app1.avif';
+import SPIFFY_APP_2 from '@/assets/images/projects/spiffyApp/app2.avif';
+import SPIFFY_APP_3 from '@/assets/images/projects/spiffyApp/app3.avif';
+import SPIFFY_APP_4 from '@/assets/images/projects/spiffyApp/app4.avif';
+import SPIFFY_APP_5 from '@/assets/images/projects/spiffyApp/app5.avif';
 // Dash
 
-import DASH_1 from '@/assets/images/projects/dash/dash1.png';
-import DASH_2 from '@/assets/images/projects/dash/dash2.png';
-import DASH_3 from '@/assets/images/projects/dash/dash3.png';
+import DASH_1 from '@/assets/images/projects/dash/dash1.avif';
+import DASH_2 from '@/assets/images/projects/dash/dash2.avif';
+import DASH_3 from '@/assets/images/projects/dash/dash3.avif';
 // Web App
-import WEB_APP_1 from '@/assets/images/projects/webapp/one.png';
-import WEB_APP_2 from '@/assets/images/projects/webapp/two.png';
-import WEB_APP_3 from '@/assets/images/projects/webapp/three.png';
-import WEB_APP_4 from '@/assets/images/projects/webapp/four.png';
+import WEB_APP_1 from '@/assets/images/projects/webapp/one.avif';
+import WEB_APP_2 from '@/assets/images/projects/webapp/two.avif';
+import WEB_APP_3 from '@/assets/images/projects/webapp/three.avif';
+import WEB_APP_4 from '@/assets/images/projects/webapp/four.avif';
 // Cert Site
-import CERT_1 from '@/assets/images/projects/cert/one.png';
-import CERT_2 from '@/assets/images/projects/cert/two.png';
-import CERT_3 from '@/assets/images/projects/cert/three.png';
-import CERT_4 from '@/assets/images/projects/cert/four.png';
+import CERT_1 from '@/assets/images/projects/cert/one.avif';
+import CERT_2 from '@/assets/images/projects/cert/two.avif';
+import CERT_3 from '@/assets/images/projects/cert/three.avif';
+import CERT_4 from '@/assets/images/projects/cert/four.avif';
 // Data Science
-import DS_ONE from '@/assets/images/projects/dataScience/one.png';
-import DS_TWO from '@/assets/images/projects/dataScience/two.png';
-import DS_FOUR from '@/assets/images/projects/dataScience/four.png';
-import DS_FIVE from '@/assets/images/projects/dataScience/five.png';
+import DS_ONE from '@/assets/images/projects/dataScience/one.avif';
+import DS_TWO from '@/assets/images/projects/dataScience/two.avif';
+import DS_FOUR from '@/assets/images/projects/dataScience/four.avif';
+import DS_FIVE from '@/assets/images/projects/dataScience/five.avif';
 // Other
-import OTHER_ONE from '@/assets/images/projects/other/one.png';
-import OTHER_TWO from '@/assets/images/projects/other/two.png';
-import OTHER_THREE from '@/assets/images/projects/other/three.png';
-import OTHER_FOUR from '@/assets/images/projects/other/four.png';
+import OTHER_ONE from '@/assets/images/projects/other/one.avif';
+import OTHER_TWO from '@/assets/images/projects/other/two.avif';
+import OTHER_THREE from '@/assets/images/projects/other/three.avif';
+import OTHER_FOUR from '@/assets/images/projects/other/four.avif';
 
 import {
   Atom,
