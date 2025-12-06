@@ -12,8 +12,10 @@ const AnimatedTitle = ({
   return (
     <div
       className={`
-    flex gap-x-3 absolute -top-16 left-0 py-2 px-4 
-    bg-white dark:bg-slate-900 shadow-md  rounded-sm items-center justify-center mr-auto
+    flex gap-x-3 absolute -top-16 left-0 py-2 px-4
+    bg-linear-to-br border-0 from-white via-gray-100 to-white 
+    dark:from-slate-900 dark:via-slate-800 dark:to-slate-900
+    shadow-sm rounded-sm items-center  border-gray-50 dark:border-gray-700 justify-center mr-auto
     transition-all duration-400 ease-out
     ${isActive ? 'opacity-100 translate-x-0' : 'opacity-0 -translate-x-8'}
   `}
@@ -28,7 +30,7 @@ const AnimatedTitle = ({
       <h3
         className={`${
           isActive ? 'text-black dark:text-white' : 'text-gray-400'
-        } font-josefin text-xl font-semibold -mb-1 transition-colors delay-200`}
+        } font-josefin text-xl font-semibold tracking-wider -mb-1 transition-colors delay-200`}
       >
         {title}
       </h3>

@@ -24,7 +24,7 @@ const ProjectPage = ({ isInViewport }: { isInViewport: boolean }) => {
   }, [api]);
 
   return (
-    <div className="bg-gray-100 dark:bg-slate-800 page-wrapper flex flex-col items-center justify-center">
+    <div className="bg-gray-100 dark:bg-slate-950 page-wrapper flex flex-col items-center justify-center">
       <div className="bg-transparent relative w-[96vw] md:w-180 flex flex-col items-center justify-center">
         <div className="relative w-full">
           <AnimatedTitle

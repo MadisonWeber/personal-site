@@ -1,11 +1,11 @@
 import { STACK_LIST, CATEGORIES } from '@/constants';
 import AnimatedTitle from '@/components/custom/AnimatedTitle';
 import { Code } from 'lucide-react';
-import TechItemV2 from './TechItemV2';
+import TechItemV2 from './TechItem';
 
 const TechStack = ({ isInViewport }: { isInViewport: boolean }) => {
   return (
-    <div className="bg-gray-200 dark:bg-gray-900 page-wrapper flex flex-col items-center justify-center p-10">
+    <div className="bg-gray-200 dark:bg-slate-950/97 page-wrapper flex flex-col items-center justify-center p-10">
       <div className="relative">
         <AnimatedTitle
           title="Tech Stack"
@@ -19,7 +19,10 @@ const TechStack = ({ isInViewport }: { isInViewport: boolean }) => {
         >
           <div className="w-full flex-1 min-h-100 h-100 gap-2 flex flex-col gap-y-2 p-0 items-start justify-start">
             {Object.values(CATEGORIES).map(category => (
-              <div className="w-full flex flex-col items-start gap-y-2 pb-3">
+              <div
+                key={category}
+                className="w-full flex flex-col items-start gap-y-2 pb-3"
+              >
                 <p className="text-sm text-gray-400 tracking-widest uppercase">{category}</p>
                 <div className="w-full flex flex-row flex-wrap gap-4">
                   {STACK_LIST.filter(item => item.category === category).map(item => (
