@@ -20,17 +20,19 @@ const AnimatedTitle = ({
     ${isActive ? 'opacity-100 translate-x-0' : 'opacity-0 -translate-x-8'}
   `}
     >
-      <Icon
-        className={`${
-          isActive ? 'text-sky-700' : 'text-gray-300'
-        } transition-colors delay-100 duration-300`}
-        height={20}
-        width={20}
-      />
+      <div className="bg-gray-200 dark:bg-slate-950 p-1 rounded-sm">
+        <Icon
+          className={`${
+            isActive ? 'text-sky-700' : 'text-gray-300'
+          } transition-colors delay-100 duration-300`}
+          height={15}
+          width={15}
+        />
+      </div>
       <h3
         className={`${
           isActive ? 'text-black dark:text-white' : 'text-gray-400'
-        } font-josefin text-xl font-semibold tracking-wider -mb-1 transition-colors delay-200`}
+        } font-josefin text-lg font-semibold tracking-wider -mb-1 transition-colors delay-200`}
       >
         {title}
       </h3>
