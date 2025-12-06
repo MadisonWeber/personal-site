@@ -1,7 +1,5 @@
 import type { LucideIcon } from 'lucide-react';
 
-
-
 const AnimatedTitle = ({
   title,
   isActive,
@@ -15,7 +13,7 @@ const AnimatedTitle = ({
     <div
       className={`
     flex gap-x-3 absolute -top-16 left-0 py-2 px-4 
-    bg-white shadow-md rounded-sm items-center justify-center mr-auto
+    bg-white dark:bg-slate-900 shadow-md  rounded-sm items-center justify-center mr-auto
     transition-all duration-400 ease-out
     ${isActive ? 'opacity-100 translate-x-0' : 'opacity-0 -translate-x-8'}
   `}
@@ -29,7 +27,7 @@ const AnimatedTitle = ({
       />
       <h3
         className={`${
-          isActive ? 'text-black' : 'text-gray-400'
+          isActive ? 'text-black dark:text-white' : 'text-gray-400'
         } font-josefin text-xl font-semibold -mb-1 transition-colors delay-200`}
       >
         {title}

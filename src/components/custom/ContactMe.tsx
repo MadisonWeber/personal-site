@@ -76,11 +76,11 @@ const ContactMe = () => {
     >
       <DialogOverlay className="bg-black/40" />
       <DialogTrigger asChild>
-        <Button className="flex flex-row items-center justify-center bg-white p-5 rounded-full cursor-pointer shadow-lg hover:bg-blue-50">
+        <Button className="flex flex-row items-center justify-center dark:bg-slate-800 bg-white p-5 rounded-full cursor-pointer shadow-lg hover:bg-blue-50 hover:dark:bg-slate-700">
           <MessageCircleMore
             height={10}
             width={10}
-            className="text-sky-900 animate-pulse"
+            className="text-sky-900 dark:text-sky-500"
             onClick={() => setIsOpen(true)}
           />
         </Button>

@@ -68,6 +68,11 @@ import {
   Github,
   FlaskConical,
   Calculator,
+  SproutIcon,
+  University,
+  Calendar,
+  MapPin,
+  MailIcon,
 } from 'lucide-react';
 
 export const CATEGORIES = {
@@ -474,5 +479,28 @@ export const PROJECT_LIST = [
     image: OTHER_ONE,
     visitUrl: 'https://frontend-mentor-easybank.madisonweber.vercel.app/',
     isMobile: false,
+  },
+];
+
+export const ABOUT_ITEMS = [
+  {
+    Icon: University,
+    title: 'University of Guelph',
+  },
+  {
+    Icon: MailIcon,
+    title: 'madison.weber.dev@gmail.com',
+  },
+  {
+    Icon: MapPin,
+    title: 'Toronto, Ontario, Canada',
+  },
+  {
+    Icon: Calendar,
+    title: 'Dec 4th, 1991',
+  },
+  {
+    Icon: SproutIcon,
+    title: 'Hockey, Golf, Design, Plants',
   },
 ];

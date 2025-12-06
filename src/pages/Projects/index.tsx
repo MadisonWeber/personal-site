@@ -24,7 +24,7 @@ const ProjectPage = ({ isInViewport }: { isInViewport: boolean }) => {
   }, [api]);
 
   return (
-    <div className="bg-gray-100 page-wrapper flex flex-col items-center justify-center">
+    <div className="bg-gray-100 dark:bg-slate-800 page-wrapper flex flex-col items-center justify-center">
       <div className="bg-transparent relative w-[96vw] md:w-180 flex flex-col items-center justify-center">
         <div className="relative w-full">
           <AnimatedTitle
@@ -35,7 +35,7 @@ const ProjectPage = ({ isInViewport }: { isInViewport: boolean }) => {
           <div
             className={`${
               isInViewport ? 'opacity-100 translate-x-0' : 'opacity-0 translate-x-12'
-            } delay-100 duration-500 bg-gray-200 shadow-xl rounded-lg w-full`}
+            } delay-100 duration-500 bg-gray-200 dark:bg-gray-900 shadow-xl rounded-lg w-full`}
           >
             <Carousel
               setApi={setApi}
@@ -62,20 +62,20 @@ const ProjectPage = ({ isInViewport }: { isInViewport: boolean }) => {
           <Button
             onClick={() => api?.scrollPrev()}
             disabled={!api?.canScrollPrev()}
-            className="bg-white border border-gray-100 rounded-xl h-10 w-10 shadow-md hover:shadow-sm cursor-pointer"
+            className="bg-white border border-gray-100 dark:border-slate-700 dark:bg-slate-600 rounded-xl h-10 w-10 shadow-md hover:shadow-sm cursor-pointer"
           >
             <ChevronLeft
-              className="text-black"
+              className="text-black dark:text-slate-200"
               height={50}
               width={50}
             />
           </Button>
-          <div className="min-w-20 p-1.5 rounded-lg shadow-md flex items-center justify-center bg-white gap-x-2">
+          <div className="min-w-20 p-1.5 rounded-lg shadow-md flex items-center justify-center bg-white dark:bg-slate-600 gap-x-2">
             {PROJECT_LIST.map((p, i) => (
               <button
                 key={p.name}
                 className={`h-3 w-3 rounded-full transition ${
-                  current === i ? 'bg-sky-700' : 'bg-gray-200'
+                  current === i ? 'bg-sky-700' : 'bg-gray-200 dark:bg-gray-400'
                 }`}
                 onClick={() => api?.scrollTo(i)}
               />
@@ -84,10 +84,10 @@ const ProjectPage = ({ isInViewport }: { isInViewport: boolean }) => {
           <Button
             onClick={() => api?.scrollNext()}
             disabled={!api?.canScrollNext()}
-            className="bg-white border border-gray-100 rounded-xl h-10 w-10 shadow-md hover:shadow-sm cursor-pointer"
+            className="bg-white dark:bg-slate-600 dark:border-slate-700 border border-gray-100 rounded-xl h-10 w-10 shadow-md hover:shadow-sm cursor-pointer"
           >
             <ChevronRight
-              className="text-black"
+              className="text-black dark:text-slate-200"
               height={18}
               width={18}
             />

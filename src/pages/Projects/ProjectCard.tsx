@@ -38,16 +38,20 @@ const ProjectCard = ({ project }: { project: ProjectProps }) => {
 
   return (
     <div className="w-full p-5">
-      <div className="min-h-164 w-full rounded-md p-5 bg-gray-50 shadow-lg flex border border-gray-100 flex-col items-start justify-start">
+      <div className="min-h-164 dark:bg-slate-800 w-full rounded-md p-5 bg-gray-50 shadow-lg flex border dark:border-slate-800 border-gray-100 flex-col items-start justify-start">
         <div className="p-2 flex-1 flex flex-col items-start justify-start">
-          <p className="text-lg font-semibold text-black">{project.name}</p>
-          <p className="text-sm text-gray-500 max-w-9/10 mt-4">{project.description}</p>
+          <p className="text-lg font-semibold text-black dark:text-white">{project.name}</p>
+          <p className="text-sm text-gray-500 dark:text-gray-400 max-w-9/10 mt-4">
+            {project.description}
+          </p>
           <div className="flex flex-col gap-2 gap-y-0.5 mt-2 flex-wrap py-2">
             {project?.filterTags &&
               project.filterTags.map(({ Icon, name }) => (
                 <div className="flex gap-x-1 items-center">
                   <Icon className="w-4 h-4 text-gray-400" />
-                  <span className="text-xs text-gray-400 font-light">{name}</span>
+                  <span className="text-xs text-gray-400 dark:text-gray-300 font-light">
+                    {name}
+                  </span>
                 </div>
               ))}
           </div>
@@ -87,7 +91,7 @@ const ProjectCard = ({ project }: { project: ProjectProps }) => {
             >
               <Button
                 disabled={!project?.visitUrl}
-                className="cursor-pointer rounded-full bg-white hover:bg-blue-50 transition duration-200 shadow-md border-black text-black font-medium h-10 w-10l"
+                className="cursor-pointer rounded-full bg-white dark:bg-slate-900 hover:dark:bg-slate-700 hover:bg-blue-50 transition duration-200 shadow-md border-black text-black font-medium h-10 w-10l"
               >
                 <Link
                   className="text-sky-700 hover-group:text-white"

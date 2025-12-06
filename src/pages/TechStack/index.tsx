@@ -5,7 +5,7 @@ import TechItemV2 from './TechItemV2';
 
 const TechStack = ({ isInViewport }: { isInViewport: boolean }) => {
   return (
-    <div className="bg-gray-200 page-wrapper flex flex-col items-center justify-center p-10">
+    <div className="bg-gray-200 dark:bg-gray-900 page-wrapper flex flex-col items-center justify-center p-10">
       <div className="relative">
         <AnimatedTitle
           title="Tech Stack"
@@ -25,7 +25,7 @@ const TechStack = ({ isInViewport }: { isInViewport: boolean }) => {
                   {STACK_LIST.filter(item => item.category === category).map(item => (
                     <TechItemV2
                       item={item}
-                      key={item?.name}                    
+                      key={item?.name}
                     />
                   ))}
                 </div>
