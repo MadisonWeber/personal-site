@@ -5,7 +5,7 @@ import TechItemV2 from './TechItem';
 
 const TechStack = ({ isInViewport }: { isInViewport: boolean }) => {
   return (
-    <div className="bg-gray-200 dark:bg-slate-950/97 page-wrapper flex flex-col items-center justify-center p-10">
+    <div className="bg-linear-to-tr from-gray-200 via-white to-gray-200 dark:bg-slate-950/97 dark:from-slate-950 dark:via-gray-900 dark:to-slate-950 page-wrapper flex flex-col items-center justify-center p-10">
       <div className="relative">
         <AnimatedTitle
           title="Tech Stack"

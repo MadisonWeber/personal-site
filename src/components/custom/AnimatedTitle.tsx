@@ -32,7 +32,7 @@ const AnimatedTitle = ({
       <h3
         className={`${
           isActive ? 'text-black dark:text-white' : 'text-gray-400'
-        } font-josefin text-lg font-semibold tracking-wider -mb-1 transition-colors delay-200`}
+        } font-josefin text-lg font-semibold tracking-wider -mb-1 transition-colors`}
       >
         {title}
       </h3>

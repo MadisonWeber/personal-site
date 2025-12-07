@@ -24,7 +24,7 @@ const ProjectPage = ({ isInViewport }: { isInViewport: boolean }) => {
   }, [api]);
 
   return (
-    <div className="bg-gray-100 dark:bg-slate-950 page-wrapper flex flex-col items-center justify-center">
+    <div className="from-gray-200 via-white to-gray-300 bg-linear-120 dark:bg-slate-950/97 dark:from-slate-950 dark:via-gray-900 dark:to-slate-950 page-wrapper flex flex-col items-center justify-center">
       <div className="bg-transparent relative w-[96vw] md:w-180 flex flex-col items-center justify-center">
         <div className="relative w-full">
           <AnimatedTitle
@@ -35,7 +35,7 @@ const ProjectPage = ({ isInViewport }: { isInViewport: boolean }) => {
           <div
             className={`${
               isInViewport ? 'opacity-100 translate-x-0' : 'opacity-0 translate-x-12'
-            } delay-100 duration-500 bg-gray-200 dark:bg-gray-900 shadow-xl rounded-lg w-full`}
+            } delay-100 duration-500 transition-transform bg-gray-200 dark:bg-gray-900 shadow-xl rounded-lg w-full`}
           >
             <Carousel
               setApi={setApi}

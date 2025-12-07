@@ -12,7 +12,7 @@ const highlightClass = 'font-semibold text-black dark:text-white';
 
 const AboutPage = ({ isInViewport }: { isInViewport: boolean }) => {
   return (
-    <div className="page-wrapper bg-gray-100 dark:bg-slate-950 flex flex-col items-center justify-center">
+    <div className="page-wrapper bg-linear-to-br from-gray-200 via-white to-gray-00  dark:from-slate-950 dark:via-gray-900 dark:to-slate-950  flex flex-col items-center justify-center">
       <div className="relative">
         <AnimatedTitle
           title="About"
@@ -22,7 +22,7 @@ const AboutPage = ({ isInViewport }: { isInViewport: boolean }) => {
         <div
           className={`${
             isInViewport ? 'opacity-100 translate-x-0' : 'opacity-0 translate-x-12'
-          } delay-100 duration-500 relative p-4 sm:p-6 md:p-8 min-h-110 w-[96vw] md:w-180 shadow-xl bg-white dark:bg-slate-900 rounded-md flex flex-col items-start justify-start`}
+          } delay-100 duration-500 relative transition-transform p-4 sm:p-6 md:p-8 min-h-110 w-[96vw] md:w-180 shadow-lg bg-white dark:bg-slate-900  dark:shadow-gray-900 dark:border dark:border-gray-800 rounded-md flex flex-col items-start justify-start`}
         >
           <div className="flex flex-col-reverse sm:flex-row gap-8 items-start justify-start w-full">
             <div className="flex-1 h-full w-full flex flex-col grow items-start justify-start bg-gray-100 dark:bg-slate-800 flex-wrap max-h-100  shadow-lg rounded-xl p-2.5 gap-y-2.5">
